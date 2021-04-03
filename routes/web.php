@@ -30,3 +30,7 @@ Route::get('/news/{id}/{text}', function ($id, $text) {
     return 'id: ' . $id . '<br>News: ' . $text;
 //    return view('news');
 });
+
+Route::get('/news', function () {
+    return view('news');
+});
