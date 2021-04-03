@@ -18,11 +18,15 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', function () {
-    return "<h3>I am Home!</h3>";
-    //    return view('home');
+//    return "<h3>I am Home!</h3>";
+    return view('home');
 });
 
 Route::get('/about', function () {
-    return "Hi!";
-    // return view('welcome');
+     return view('about');
+});
+
+Route::get('/news/{id}/{text}', function ($id, $text) {
+    return 'id: ' . $id . '<br>News: ' . $text;
+//    return view('news');
 });
