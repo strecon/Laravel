@@ -10,5 +10,6 @@
 </head>
 <body>
     <H1>Welcom to Home Page!</H1>
+    <p>This is view.</p>
 </body>
 </html>
