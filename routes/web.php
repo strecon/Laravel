@@ -17,15 +17,29 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-//    return "<h3>I am Home!</h3>";
-    return view('home');
-});
+/*
+/ Home
+*/
 
-Route::get('/about', function () {
-     return view('about');
-});
+//Route::get('/', function () {
+////    return "<h3>I am Home!</h3>";
+//    return view('home');
+//});
 
+Route::get('/', '\App\Http\Controllers\HomeController@home');
+
+/*
+/ About
+*/
+//Route::get('/about', function () {
+//     return view('about');
+//});
+
+Route::get('/about', '\App\Http\Controllers\AboutController@about');
+
+/*
+ / News
+*/
 //Route::get('/news/{id}/{text}', function ($id, $text) {
 //    return 'id: ' . $id . '<br>News: ' . $text;
 ////    return view('news');
@@ -44,3 +58,6 @@ Route::get('/news/category/item/{id}/{text}', function () {
 });
 
 
+/*
+/ Admin
+*/
