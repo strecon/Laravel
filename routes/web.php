@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-/*
+
+/* ----
 / Home
 */
 
@@ -28,18 +29,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', '\App\Http\Controllers\HomeController@home');
 
-/*
+
+/* ----
 / About
 */
+
 //Route::get('/about', function () {
 //     return view('about');
 //});
 
 Route::get('/about', '\App\Http\Controllers\AboutController@about');
 
-/*
+
+/* ----
  / News
 */
+
 //Route::get('/news/{id}/{text}', function ($id, $text) {
 //    return 'id: ' . $id . '<br>News: ' . $text;
 ////    return view('news');
@@ -53,11 +58,11 @@ Route::get('/news/category/{id}/{category}', function () {
     return view('newsCategory');
 });
 
-Route::get('/news/category/item/{id}/{text}', function () {
+Route::get('/news/category/item/{id}/{item}', function () {
     return view('newsCategoryItem');
 });
 
 
-/*
+/* ----
 / Admin
 */
