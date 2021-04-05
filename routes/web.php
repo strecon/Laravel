@@ -26,11 +26,21 @@ Route::get('/about', function () {
      return view('about');
 });
 
-Route::get('/news/{id}/{text}', function ($id, $text) {
-    return 'id: ' . $id . '<br>News: ' . $text;
-//    return view('news');
-});
+//Route::get('/news/{id}/{text}', function ($id, $text) {
+//    return 'id: ' . $id . '<br>News: ' . $text;
+////    return view('news');
+//});
 
 Route::get('/news', function () {
     return view('news');
 });
+
+Route::get('/news/category/{id}/{category}', function () {
+    return view('newsCategory');
+});
+
+Route::get('/news/category/item/{id}/{text}', function () {
+    return view('newsCategoryItem');
+});
+
+
