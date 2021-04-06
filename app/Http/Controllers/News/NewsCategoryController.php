@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 class NewsCategoryController extends Controller
 {
-    // do not needs?
+    // прописать подгрузку форичем списка новостей по выбранной категории (список - из массива новостей)
+    // id, category
+
+    // массив новостей
+
+    // подгрузка
 }

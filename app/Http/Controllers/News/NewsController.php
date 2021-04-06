@@ -7,5 +7,9 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    // do not needs?
+    // прописать подгрузку форичем списка категорий (список - из массива категорий)
+
+    // массив категорий
+
+    // подгрузка
 }
