@@ -41,21 +41,30 @@ Route::get('/about', '\App\Http\Controllers\AboutController@about');
 ////    return view('news');
 //});
 
-Route::get('/news', function () {
-    return view('news');
-    // will be add name ?  ListNewsCategory
-});
+//Route::get('/news', function () {
+//    return view('news');
+//    // will be add name ?  ListNewsCategory
+//});
 
-Route::get('/news/category', function () {
-    return view('newsCategory');
-    //  will be add name ? CategoryNewsList
-});
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])
+    ->name("news::catalog");
 
-Route::get('/news/category/item', function () {
-    return view('newsCategoryItem');
-    //  will be add name ? selectedNews
-});
+//Route::get('/news/category', function () {
+//    return view('newsCategory');
+//    //  will be add name ? CategoryNewsList
+//});
 
+Route::get('/news/category', [\App\Http\Controllers\NewsController::class, 'category'])
+    ->name('news::category');
+
+//Route::get('/news/category/item', function () {
+//    return view('newsCategoryItem');
+//    //  will be add name ? selectedNews
+//});
+
+Route::get('/news/card', [\App\Http\Controllers\NewsController::class, 'card'])
+    ->where('id', '[0-9]+')
+    ->name('news::card');
 
 /* ----
 / Admin

@@ -2,41 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News; //??
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    // This file from lesson2
-    private $news = [
+    // массив категорий
+    private $categories = [
+        1 => 'Интриги',
+        2 => 'Скандалы',
+        3 => 'Расследования'
+    ];
+
+    // массив новостей
+    private $news2 = [
         1 => [
-            'title' => 'news 1'
+            'title' => 'Действия представителей оппозиции представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть объективно рассмотрены соответствующими инстанциями.'
         ],
         2 => [
-            'title' => 'news 2'
+            'title' => 'А ещё акционеры крупнейших компаний объединены в целые кластеры себе подобных. Лишь
+некоторые особенности внутренней политики объединены в целые кластеры себе подобных.'
+        ],
+        3 => ['Приятно, граждане, наблюдать, как сделанные на базе интернет-аналитики выводы, инициированные исключительно синтетически, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности.'
         ]
     ];
 
-
-    public function index()
-    {
-        foreach ($this->news as $id => $item) {
-            $url = route('news::card', ['id' => $id]);
-            echo "<div>
-                    <a href='$url'>
-                        {$item['title']}
-                   </a>
-                  </div>";
-        }
-        echo "this is main page";
+    // вывод блоков с названиями
+    public function index() {
+        echo "News catalog";
         exit;
     }
-
-    public function card($id)
-    {
-        $news = $this->news[$id];
-
-        echo $news['title'];
-
+    // вывод новостей по выбранной категории
+    public function category() {
+        echo "News list by category";
+        exit;
+    }
+    // вывод выбранной новости
+    public function card() {
+        echo "Selected News";
         exit;
     }
 }
