@@ -22,21 +22,12 @@ use Illuminate\Support\Facades\Route;
 / Home
 */
 
-//Route::get('/', function () {
-////    return "<h3>I am Home!</h3>";
-//    return view('home');
-//});
-
 Route::get('/', '\App\Http\Controllers\HomeController@home');
 
 
 /* ----
 / About
 */
-
-//Route::get('/about', function () {
-//     return view('about');
-//});
 
 Route::get('/about', '\App\Http\Controllers\AboutController@about');
 
@@ -54,11 +45,11 @@ Route::get('/news', function () {
     return view('news');
 });
 
-Route::get('/news/category/{id}/{category}', function () {
+Route::get('/news/category', function () {
     return view('newsCategory');
 });
 
-Route::get('/news/category/item/{id}/{item}', function () {
+Route::get('/news/category/item', function () {
     return view('newsCategoryItem');
 });
 

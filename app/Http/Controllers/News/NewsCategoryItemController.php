@@ -7,5 +7,5 @@ use Illuminate\Http\Request;
 
 class NewsCategoryItemController extends Controller
 {
-    //
+    // do not needs?
 }
