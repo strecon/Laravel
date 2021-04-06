@@ -33,17 +33,17 @@ Route::get('/', '\App\Http\Controllers\HomeController@home');
 Route::get('/about', '\App\Http\Controllers\AboutController@about');
 
 
-/* ----
- / News
+/* ------
+    News
 */
 //-- Third stage --
 Route::group([
     'prefix' => '/news',
     'as' => 'news::',
 ], function () {
-    Route::get('/', [NewsController::class, 'index']) ->name("catalog");
-    Route::get('/category', [NewsController::class, 'category']) ->name('category');
-    Route::get('/card', [NewsController::class, 'card']) ->where('id', '[0-9]+')
+    Route::get('/', [NewsController::class, 'index']) ->name("categories");
+    Route::get('/list/{category}', [NewsController::class, 'showList']) ->name('list');
+    Route::get('/card/{id}', [NewsController::class, 'showCard']) ->where('id', '[0-9]+')
         ->name('card');
 });
 
@@ -52,10 +52,11 @@ Route::group([
 //Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])
 //    ->name("news::catalog");
 //
-//Route::get('/news/category', [\App\Http\Controllers\NewsController::class, 'category'])
-//    ->name('news::category');
+//Route::get('/news/category', [\App\Http\Controllers\NewsController::class, 'showList'])
+//    ->where('id', '[0-9]+')
+//    ->name('news::categories');
 //
-//Route::get('/news/card', [\App\Http\Controllers\NewsController::class, 'card'])
+//Route::get('/news/card/{id}', [\App\Http\Controllers\NewsController::class, 'showCard'])
 //    ->where('id', '[0-9]+')
 //    ->name('news::card');
 
@@ -68,20 +69,17 @@ Route::group([
 
 //Route::get('/news', function () {
 //    return view('news');
-//    // will be add name ?  ListNewsCategory
 //});
 
 //Route::get('/news/category', function () {
-//    return view('newsCategory');
-//    //  will be add name ? CategoryNewsList
+//    return view('newsByCategory');
 //});
 
 //Route::get('/news/category/card', function () {
-//    return view('newsCategoryCard');
-//    //  will be add name ? selectedNews
+//    return view('newsCard');
 //});
 
 
-/* ----
-/ Admin
+/* -------
+    Admin
 */
