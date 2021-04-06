@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h2>News List from Category</h2>
+<h2>News List by Category</h2>
 <br>
 <p>Links yet do not works</p>
 <p>News 1</p>

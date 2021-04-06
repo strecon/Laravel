@@ -29,17 +29,20 @@ class NewsController extends Controller
 
     // вывод блоков с названиями
     public function index() {
-        echo "News catalog";
-        exit;
+        return view('news');
+//        echo "<h2>News catalog</h2>";
+//        exit;
     }
     // вывод новостей по выбранной категории
     public function category() {
-        echo "News list by category";
-        exit;
+        return view('newsCategory');
+//        echo "News list by category";
+//        exit;
     }
     // вывод выбранной новости
     public function card() {
-        echo "Selected News";
-        exit;
+        return view('newsCategoryCard');
+//        echo "Selected News";
+//        exit;
     }
 }

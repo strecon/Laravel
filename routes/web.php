@@ -57,8 +57,8 @@ Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])
 Route::get('/news/category', [\App\Http\Controllers\NewsController::class, 'category'])
     ->name('news::category');
 
-//Route::get('/news/category/item', function () {
-//    return view('newsCategoryItem');
+//Route::get('/news/category/card', function () {
+//    return view('newsCategoryCard');
 //    //  will be add name ? selectedNews
 //});
 
