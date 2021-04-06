@@ -43,14 +43,17 @@ Route::get('/about', '\App\Http\Controllers\AboutController@about');
 
 Route::get('/news', function () {
     return view('news');
+    // will be add name ?  ListNewsCategory
 });
 
 Route::get('/news/category', function () {
     return view('newsCategory');
+    //  will be add name ? CategoryNewsList
 });
 
 Route::get('/news/category/item', function () {
     return view('newsCategoryItem');
+    //  will be add name ? selectedNews
 });
 
 

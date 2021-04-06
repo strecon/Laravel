@@ -10,6 +10,23 @@ class NewsController extends Controller
     // прописать подгрузку форичем списка категорий (список - из массива категорий)
 
     // массив категорий
+    private $category = [
+        1 => [
+            'title' => 'Интриги'
+        ],
+        2 => [
+            'title' => 'Скандалы'
+        ],
+        3 => [
+            'title' => 'Расследования'
+        ]
+    ];
 
-    // подгрузка
+    // вывод блоков с названиями
+    public function news()
+    {
+
+        echo "This is List News Category";
+        exit;
+    }
 }
