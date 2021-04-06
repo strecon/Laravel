@@ -41,7 +41,7 @@ class NewsController extends Controller
     }
     // вывод выбранной новости
     public function card() {
-        return view('newsCategoryCard');
+        return view('newsCard');
 //        echo "Selected News";
 //        exit;
     }
