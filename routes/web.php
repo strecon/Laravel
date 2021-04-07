@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\NewsController;
+use \App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +86,21 @@ Route::group([
 /* -------
     Admin
 */
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin::'
+], function() {
+    Route::get('/create', [AdminController::class, 'create'])
+        ->name('create');
+    Route::get('/', [AdminController::class, 'read'])
+        ->name('read');
+    Route::get('/update', [AdminController::class, 'update'])
+        ->name('update');
+    Route::get('/delete', [AdminController::class, 'delete'])
+        ->name('delete');
+});
+
+//Route::get('/admin/create'), [\App\Http\Controllers\Admin\AdminController::class, 'create'] ->name('admin::create');
+//Route::get('/admin/read'), [\App\Http\Controllers\Admin\AdminController::class, 'read'] ->name('admin::read');
+//Route::get('/admin/update'), [\App\Http\Controllers\Admin\AdminController::class, 'update'] ->name('admin::update');
+//Route::get('/admin/delete'), [\App\Http\Controllers\Admin\AdminController::class, 'delete'] ->name('admin::delete');
