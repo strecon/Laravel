@@ -48,17 +48,19 @@ class NewsController extends Controller
 
 
 
-    // вывод блоков с названиями
+    // вывод блоков с названиями категорий
     public function index() {
 
         $boofer = [];
         foreach ($this->categories as $id => $category) {
             $boofer[$id] = $category;
-
         }
-//        return $boofer;
-        foreach ($boofer as $category) {
-            echo "<p>$category</p>";
+
+//      return $boofer;
+        foreach ($boofer as $id => $category) {
+            $url = route('news::list', ['category' => $id]);
+            echo "<p><a href='$url'>$category</a></p>";
+//            echo "<p>$category</p>";
         }
 
 //        return view('news');
@@ -78,8 +80,10 @@ class NewsController extends Controller
             }
         }
 //      return $boofer;
-        foreach ($boofer as $item) {
-            echo "<p>$item</p>";
+
+        foreach ($boofer as $id => $item) {
+            $url = route('news::card', ['id' => $id]);
+            echo "<p><a href='$url'>$item</a></p>";
         }
 
 //        echo "News list by category";
@@ -89,7 +93,7 @@ class NewsController extends Controller
     }
 
 
-    // вывод выбранной новости ++
+    // вывод выбранной новости
     public function showCard($id) {
 
         $news = $this->news[$id];
