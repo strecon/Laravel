@@ -20,23 +20,21 @@ use \App\Http\Controllers\Admin\AdminController;
 
 
 
-/* ----
-/ Home
-*/
+/* -------
+/ Home */
 
 Route::get('/', '\App\Http\Controllers\HomeController@home');
 
 
-/* ----
-/ About
-*/
+/* --------
+/ About */
 
 Route::get('/about', '\App\Http\Controllers\AboutController@about');
 
 
-/* ------
-    News
-*/
+/* -------
+/ News */
+
 //-- Third stage --
 Route::group([
     'prefix' => '/news',
@@ -83,9 +81,8 @@ Route::group([
 //});
 
 
-/* -------
-    Admin
-*/
+/* --------
+/ Admin */
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin::'

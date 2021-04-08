@@ -64,9 +64,6 @@ class NewsController extends Controller
         }
 
 //        return view('news');
-
-//        echo "<h2>News catalog</h2>";
-//        exit;
     }
 
 
@@ -86,9 +83,6 @@ class NewsController extends Controller
             echo "<p><a href='$url'>$item</a></p>";
         }
 
-//        echo "News list by category";
-//        exit;
-
 //        return view('newsByCategory');
     }
 
@@ -98,9 +92,6 @@ class NewsController extends Controller
 
         $news = $this->news[$id];
         return $news['title'];
-
-//        echo "Selected news";
-//        exit;
 
 //        return view('newsCard');
     }
