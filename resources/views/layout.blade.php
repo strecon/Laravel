@@ -9,26 +9,23 @@
         @section('title')Hot News ::@show
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link href="css/app.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="jumbotron">
-            @include('header.siteHeader')
-        </div>
-    </header>
-    <nav>
-        @include('nav.siteMenu')
-    </nav>
+
+    @include('nav.siteMenu')
     <hr>
+
+    @include('header.siteHeader')
+    <hr>
+
+
     <div class="container">
         @yield('page_content')
     </div>
+
     <hr>
-    <footer class="footer">
-        <div class="container">
-            @include('footer')
-        </div>
-    </footer>
+    @include('footer')
+
 </body>
 </html>

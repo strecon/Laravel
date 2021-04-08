@@ -1,11 +1,13 @@
 @extends('layout')
 
 @section('title')
-    <title>About</title>
+    @parent About
 @endsection
 
 @section('page_content')
-    <h1>About us</h1>
+    <h2>About us</h2>
+    <h6>Drag and drop - this is our job!</h6>
+    <br>
     <p>Phone: +7 800 500-0123</p>
     <p>E-mail: info@hotnews.com</p>
     <p>Map</p>

@@ -50,11 +50,16 @@ body, .navbar-fixed-top, .navbar-fixed-bottom {
 ul {
     display: block;
     list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    -webkit-margin-before: 1em;
+            margin-block-start: 1em;
+    -webkit-margin-after: 1em;
+            margin-block-end: 1em;
+    -webkit-margin-start: 0px;
+            margin-inline-start: 0px;
+    -webkit-margin-end: 0px;
+            margin-inline-end: 0px;
+    -webkit-padding-start: 40px;
+            padding-inline-start: 40px;
 }
 .jumbotron {
     text-align: center;
@@ -72,3 +77,4 @@ ul {
     margin-top: 30px;
     border-top: 1px solid #eee;
 }
+
