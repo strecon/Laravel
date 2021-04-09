@@ -1,5 +1,5 @@
-body, .navbar-fixed-top, .navbar-fixed-bottom {
-    min-width: 970px;
+body, .navbar-fixed-top {
+    min-width: 768px;
 }
 .container {
     padding-right: 15px;
@@ -20,51 +20,26 @@ body, .navbar-fixed-top, .navbar-fixed-bottom {
 .navbar-fixed-top {
     top: 0;
     border-width: 0 0 1px;
-}
-.navbar-fixed-bottom, .navbar-fixed-top {
     position: fixed;
     right: 0;
     left: 0;
     z-index: 1030;
 }
-.nav {
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
+.navbar-li  {
+    margin-right: 10px;
 }
 .navbar-nav {
     display: flex;
     flex-direction: row;
-    float: left;
-    margin: 0;
 }
-.navbar-right {
-    float: right!important;
-    margin-right: -15px;
-}
-.nav>li {
-    position: relative;
-    display: block;
-    float: left;
-}
-ul {
-    display: block;
-    list-style-type: disc;
-    -webkit-margin-before: 1em;
-            margin-block-start: 1em;
-    -webkit-margin-after: 1em;
-            margin-block-end: 1em;
-    -webkit-margin-start: 0px;
-            margin-inline-start: 0px;
-    -webkit-margin-end: 0px;
-            margin-inline-end: 0px;
-    -webkit-padding-start: 40px;
-            padding-inline-start: 40px;
+.navbar-nav:last-child {
+    margin-right: 0;
 }
 .jumbotron {
     text-align: center;
     background-color: transparent;
     padding: 4rem 1rem;
+    margin-bottom: 0;
 }
 .footer {
     position: absolute;

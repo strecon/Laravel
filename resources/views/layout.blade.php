@@ -14,17 +14,13 @@
 <body>
 
     @include('nav.siteMenu')
-    <hr>
 
     @include('header.siteHeader')
     <hr>
-
-
     <div class="container">
         @yield('page_content')
     </div>
 
-    <hr>
     @include('footer')
 
 </body>

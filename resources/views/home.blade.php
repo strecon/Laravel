@@ -5,5 +5,5 @@
 @endsection
 
 @section('page_content')
-    <H1>Welcom to Home Page!</H1>
+    <H2>Welcom to Home Page!</H2>
 @endsection
