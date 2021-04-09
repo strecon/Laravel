@@ -21,11 +21,13 @@ class NewsController extends Controller
         $list = (new News())->getNewsList($category);
 //        dd($list);
 //        dd($category);
-        return view('news.newsByCategory', ['list' => $list]);
+        return view('news.newsByCategory', ['category' => $category,'list' => $list]);
     }
 
     // вывод выбранной новости
     public function showCard($id) {
-        return view('news.newsCard');
+        $news = (new News())->getCard($id);
+//        dd($news );
+        return view('news.newsCard', ['news' => $news]);
     }
 }

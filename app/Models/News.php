@@ -80,14 +80,10 @@ class News extends Model
     }
 
 // вывод выбранной новости
-    public function showCard($id) {
+    public function getCard($id) {
 
         $news = $this->news[$id];
         return $news['title'];
-
-//        return view('newsCard');
     }
-
-
 
 }

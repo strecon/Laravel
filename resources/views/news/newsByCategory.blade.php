@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    @parent Category
+    @parent {{$category}} Category
 @endsection
 
 @section('page_content')
