@@ -1,15 +1,19 @@
 @extends('layout')
 
 @section('title')
-    <title>News List by Category</title>
+    @parent Category
 @endsection
 
 @section('page_content')
     <h2>News List by Category</h2>
     <br>
-    <p>Links yet do not works</p>
-    <p>News 1</p>
-    <p>News 2</p>
-    <p>News 3</p>
-    <br>
+    @foreach($list as $id => $card)
+        @php
+            $url = route('news::card', ['id' => $id]);
+        @endphp
+        <article>
+            <a href='{{$url}}'>{{$card}}</a>
+        </article>
+        <br>
+    @endforeach
 @endsection

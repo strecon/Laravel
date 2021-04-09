@@ -54,13 +54,12 @@ class News extends Model
         foreach ($this->categories as $id => $category) {
             $boofer[$id] = $category;
         }
+        return $boofer;
 
-//      return $boofer;
-        foreach ($boofer as $id => $category) {
-            $url = route('news::list', ['category' => $id]);
-            echo "<p><a href='$url'>$category</a></p>";
-//            echo "<p>$category</p>";
-        }
+//        foreach ($boofer as $id => $category) {
+//            $url = route('news::list', ['category' => $id]);
+//            echo "<p><a href='$url'>$category</a></p>"; // 1
+////            echo "<p>$category</p>"; // 2
     }
 
     // вывод новостей по выбранной категории
@@ -72,13 +71,12 @@ class News extends Model
                 $boofer[$id] = $item['title'];
             }
         }
-        // return $boofer;
+        return $boofer;
 
-        foreach ($boofer as $id => $item) {
-            $url = route('news::card', ['id' => $id]);
-            echo "<p><a href='$url'>$item</a></p>";
-        }
-        // return view('newsByCategory');
+//        foreach ($boofer as $id => $item) {
+//            $url = route('news::card', ['id' => $id]);
+//            echo "<p><a href='$url'>$item</a></p>";
+//        }
     }
 
 // вывод выбранной новости

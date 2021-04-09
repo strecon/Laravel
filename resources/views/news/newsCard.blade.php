@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    <title>newsCard</title>
+    @parent newsCard
 @endsection
 
 @section('page_content')
