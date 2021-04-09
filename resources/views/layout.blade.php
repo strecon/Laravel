@@ -12,16 +12,14 @@
     <link href="css/app.css" rel="stylesheet">
 </head>
 <body>
-
     @include('nav.siteMenu')
-
     @include('header.siteHeader')
+
     <hr>
     <div class="container">
         @yield('page_content')
     </div>
 
     @include('footer')
-
 </body>
 </html>
