@@ -6,7 +6,7 @@
                 <li class="navbar-li"><a href="{{ route('news::categories') }}">News</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="navbar-li"><a href="#">Sign in</a></li>
+                <li class="navbar-li"><a href="{{ route('auth') }}">Sign in</a></li>
                 <li class="navbar-li"><a href="{{ route('admin::panel') }}">Admin</a></li>
             </ul>
     </div>
