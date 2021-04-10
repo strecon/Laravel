@@ -11,9 +11,9 @@
         @php
             $url = route('news::card', ['id' => $id]);
         @endphp
-        <article>
-            <a href='{{$url}}'>{{$card}}</a>
-        </article>
+            <div>
+                <a href='{{$url}}'>{{$card}}</a>
+            </div>
         <br>
     @endforeach
 @endsection

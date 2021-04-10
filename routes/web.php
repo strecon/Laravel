@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use \App\Http\Controllers\NewsController;
+use \App\Http\Controllers\AboutController;
+use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\Admin\AdminController;
 
 /*
@@ -23,14 +26,16 @@ use \App\Http\Controllers\Admin\AdminController;
 /* -------
 / Home */
 
-Route::get('/', '\App\Http\Controllers\HomeController@home');
-
+//Route::get('/', '\App\Http\Controllers\HomeController@home');
+Route::get('/', [HomeController::class, 'home'])
+    ->name('root');
 
 /* --------
 / About */
 
-Route::get('/about', '\App\Http\Controllers\AboutController@about');
-
+//Route::get('/about', '\App\Http\Controllers\AboutController@about');
+Route::get('/about', [AboutController::class, 'about'])
+->name('about');
 
 /* -------
 / News */
@@ -41,7 +46,7 @@ Route::group([
     'as' => 'news::',
 ], function () {
     Route::get('/', [NewsController::class, 'index'])
-        ->name("categories");
+        ->name('categories');
     Route::get('/list/{category}', [NewsController::class, 'showList'])
         ->name('list');
     Route::get('/card/{id}', [NewsController::class, 'showCard']) ->where('id', '[0-9]+')
