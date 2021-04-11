@@ -11,7 +11,11 @@
 @section('page_content')
     <h2>Selected news</h2>
     <br>
-    <article>{{$news}}</article>
+    <article>
+        <div class="news_img"></div>
+        <br>
+        <div>{{$news}}</div>
+    </article>
     <br>
     <br>
 @endsection

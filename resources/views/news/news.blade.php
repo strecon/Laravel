@@ -7,12 +7,14 @@
 @section('page_content')
     <h2>News Categories</h2>
     <br>
-    @foreach($categories as $id => $category)
-        @php
-            $url = route('news::list', ['category' => $id]);
-        @endphp
-            <div>
+    <div class="news-tiles">
+        @foreach($categories as $id => $category)
+            @php
+                $url = route('news::list', ['category' => $id]);
+            @endphp
+            <div class="news-tile">
                 <a href='{{$url}}'>{{$category}}</a>
             </div>
-    @endforeach
+        @endforeach
+    </div>
 @endsection

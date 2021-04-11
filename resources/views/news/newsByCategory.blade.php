@@ -9,14 +9,15 @@
 @endsection
 
 @section('page_content')
-    <h2>News List by Category</h2>
+    <h2>News List by Category {{$category}}</h2>
     <br>
     @foreach($list as $id => $card)
         @php
             $url = route('news::card', ['id' => $id]);
         @endphp
-            <div>
-                <a href='{{$url}}'>{{$card}}</a>
+            <div class="news_list-item">
+                <div class="news_img-small col-xl-1"></div>
+                <div class="col-xl-11"><a href='{{$url}}'>{{$card}}</a></div>
             </div>
         <br>
     @endforeach
