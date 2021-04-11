@@ -94,6 +94,6 @@ Route::group([
 });
 
 /* --------
-/ Autorisation */
+/ Authorisation */
 Route::get('auth', [AuthController::class,'auth'])
     ->name('auth');
