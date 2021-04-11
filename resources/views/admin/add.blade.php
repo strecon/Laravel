@@ -11,5 +11,5 @@
 @section('page_content')
     <h2>Admin Panel</h2>
     <br>
-    <p>Add news</p>
+    <p>Add news page</p>
 @endsection
