@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('style_link')
+    <link href="../../css/app.css" rel="stylesheet">
+@endsection
+
 @section('title')
     @parent {{$category}} Category
 @endsection
