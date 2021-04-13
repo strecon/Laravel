@@ -33,6 +33,7 @@ use \App\Http\Controllers\Admin\AdminController;
 Route::get('/', [HomeController::class, 'home'])
     ->name('root');
 
+
 /* --------
 / About */
 
@@ -40,10 +41,10 @@ Route::get('/', [HomeController::class, 'home'])
 Route::get('/about', [AboutController::class, 'about'])
 ->name('about');
 
+
 /* -------
 / News */
 
-//-- Third stage --
 Route::group([
     'prefix' => '/news',
     'as' => 'news::',
@@ -56,23 +57,6 @@ Route::group([
         ->where('id', '[0-9]+')
         ->name('card');
 });
-
-//Route::get('/news/{id}/{text}', function ($id, $text) {
-//    return 'id: ' . $id . '<br>News: ' . $text;
-////    return view('news');
-//});
-
-//Route::get('/news', function () {
-//    return view('news');
-//});
-
-//Route::get('/news/category', function () {
-//    return view('newsByCategory');
-//});
-
-//Route::get('/news/category/card', function () {
-//    return view('newsCard');
-//});
 
 
 /* --------
@@ -95,5 +79,6 @@ Route::group([
 
 /* --------
 / Authorisation */
+
 Route::get('auth', [AuthController::class,'auth'])
     ->name('auth');
