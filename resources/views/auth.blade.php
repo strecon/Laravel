@@ -19,7 +19,7 @@
         </div>
         <div class="form-check">
             <input class="form-check-input" type="checkbox" checked="checked" id="remember">
-            <label class="form-check-label" for="defaultCheck1">Remember me</label>
+            <label class="form-check-label" for="remember">Remember me</label>
         </div>
         <br>
         <button type="submit" class="btn btn-outline-primary">Sign In</button>
