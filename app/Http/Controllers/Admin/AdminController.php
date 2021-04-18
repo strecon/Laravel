@@ -16,7 +16,8 @@ class AdminController extends Controller
     }
 
     // add ..
-    public function add() {
+    public function add(Request $request) {
+        dump($request);
         return view('admin.add');
 //        echo "<h3>Admin Panel</h3>
 //            <p>add news</p>";

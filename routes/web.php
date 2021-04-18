@@ -9,6 +9,8 @@ use \App\Http\Controllers\AboutController;
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\Admin\AdminController;
 
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -80,5 +82,8 @@ Route::group([
 /* --------
 / Authorisation */
 
-Route::post('auth', [AuthController::class,'auth'])
+Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
     ->name('auth');
+//Route::post('auth', function (Request $request) {
+//    dd($request);
+//});
