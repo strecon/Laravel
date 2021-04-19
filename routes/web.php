@@ -69,8 +69,12 @@ Route::group([
 ], function() {
     Route::get('/', [AdminController::class, 'admin'])
         ->name('panel');
-    Route::match(['get', 'post'],'/add', [AdminController::class, 'add'])
+//    Route::match(['get', 'post'],'/add', [AdminController::class, 'add'])
+//        ->name('add');
+    Route::get('/add', [AdminController::class, 'add'])
         ->name('add');
+    Route::post('/add', [AdminController::class, 'save'])
+        ->name('save');
     Route::get('/show', [AdminController::class, 'show'])
         ->name('show');
     Route::get('/update', [AdminController::class, 'update'])

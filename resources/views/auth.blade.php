@@ -7,7 +7,7 @@
 @section('page_content')
     <h2>Autorisation</h2>
     <br>
-    <form action="{{route('auth')}}" method="post">
+    <form action="{{route('auth-save')}}" method="post">
         @csrf
         <div class="form-group">
             <label for="login">login: </label>

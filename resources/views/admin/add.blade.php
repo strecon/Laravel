@@ -13,7 +13,7 @@
     <br>
     <p>Add news page</p>
     <br>
-    <form action="{{route('admin::add')}}" method="post">
+    <form action="{{route('admin::save')}}" method="post">
         @csrf
         <div class="form-group">
             <label for="category">Add news category: </label>
