@@ -89,6 +89,6 @@ Route::group([
 Route::get('auth', [AuthController::class,'auth'])
     ->name('auth');
 Route::post('auth', [AuthController::class,'save'])
-    ->name('auth-save');
+    ->name('auth::save');
 //Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
 //    ->name('auth');

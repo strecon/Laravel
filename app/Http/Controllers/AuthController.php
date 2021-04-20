@@ -23,5 +23,6 @@ class AuthController extends Controller
         $users['password'] = $request->input('password');
         dump($users);
         return view('auth');
+//        return redirect()->route('userPage');
     }
 }

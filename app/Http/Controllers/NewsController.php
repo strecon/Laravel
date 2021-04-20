@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 //use Illuminate\Support\Facades\View;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -12,14 +12,14 @@ class NewsController extends Controller
     // вывод блоков с названиями категорий
     public function index() {
         $categories = (new News())->getNewsCategories();
-//        dd($categories);
+//        dump($categories);
         return view('news.news', ['categories' => $categories]);
     }
 
     // вывод новостей по выбранной категории
     public function showList($category) {
         $list = (new News())->getNewsList($category);
-//        dd($list);
+//        dump($list);
 //        dd($category);
         return view('news.newsByCategory', ['category' => $category,'list' => $list]);
     }
