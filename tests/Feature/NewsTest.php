@@ -13,7 +13,7 @@ class NewsTest extends TestCase
      *
      * @return void
      */
-    
+
 //    public function test_example()
 //    {
 //        $response = $this->get('/');
