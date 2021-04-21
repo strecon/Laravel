@@ -60,7 +60,6 @@ Route::group([
         ->name('card');
 });
 
-
 /* --------
 / Admin */
 Route::group([
