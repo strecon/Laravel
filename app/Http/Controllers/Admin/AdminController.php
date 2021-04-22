@@ -7,27 +7,40 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function create() {
-        echo "<h3>Admin Panel</h3>
-            <p>create</p>";
-        exit;
+    // admin ..
+    public function admin() {
+        return view('admin.admin');
+//        echo "<h3>Admin Panel</h3>
+//            <p>admin action</p>";
+//        exit;
     }
-    // show
-    public function read() {
+
+    // add ..
+    public function add() {
+        return view('admin.add');
+//        echo "<h3>Admin Panel</h3>
+//            <p>add news</p>";
+//        exit;
+    }
+
+    // show ..
+    public function show() {
         echo "<h3>Admin Panel</h3>
-            <p>read</p>";
+            <p>show news</p>";
         exit;
     }
 
+    // update ..
     public function update() {
         echo "<h3>Admin Panel</h3>
-            <p>update</p>";
+            <p>update news</p>";
         exit;
     }
 
+    // delete ..
     public function delete() {
         echo "<h3>Admin Panel</h3>
-            <p>delete</p>";
+            <p>delete news</p>";
         exit;
     }
 }

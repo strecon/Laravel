@@ -5,16 +5,22 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>
+        @section('title')Hot News ::@show
+    </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    @section('style_link')
+        <link href="css/app.css" rel="stylesheet">@show
 </head>
 <body>
-    <h2>News Categories</h2>
-    <br>
-    <p>Links yet do not works</p>
-    <div>Category 1</div>
-    <div>Category 2</div>
-    <div>Category 3</div>
-    <br>
+    @include('nav.siteMenu')
+    @include('header.siteHeader')
+
+    <hr>
+    <div class="container">
+        @yield('page_content')
+    </div>
+
+    @include('footer')
 </body>
 </html>
