@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h2>Hot news</h2>
+    <h2>News Categories</h2>
     <br>
-    <article>Действия представителей оппозиции представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть объективно рассмотрены соответствующими инстанциями.</article>
+    <p>Links yet do not works</p>
+    <div>Category 1</div>
+    <div>Category 2</div>
+    <div>Category 3</div>
     <br>
-    <article>А ещё акционеры крупнейших компаний объединены в целые кластеры себе подобных. Лишь некоторые особенности внутренней политики объединены в целые кластеры себе подобных,</article>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,5 +10,6 @@
 </head>
 <body>
     <H1>Welcom to Home Page!</H1>
+    <p>This is view.</p>
 </body>
 </html>
