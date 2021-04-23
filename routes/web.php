@@ -91,3 +91,6 @@ Route::post('auth', [AuthController::class,'save'])
     ->name('auth::save');
 //Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
 //    ->name('auth');
+
+// for example, lesson5
+Route::get('db', [\App\Http\Controllers\DbController::class, 'index']);
