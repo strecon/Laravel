@@ -20,8 +20,8 @@ class CreateNewsTables extends Migration
 //                ->primary();
             $table->id();
             $table->string(150);
-            // пометка на удаление
-//            $table->softDeletes()
+            // дата удаления
+//            $table->softDeletes();
             $table->timestamps();
         });
 
@@ -29,15 +29,19 @@ class CreateNewsTables extends Migration
             $table->id();
             $table->string('title', 150)
                 ->unique()
+//                ->default('emty news')
                 ->nullable(false);
             $table->text('content')
                 ->nullable(true);
-            $table->bigInteger('category')
-                ->unsigned()
-                ->index();
-            $table->foreign('category')
-                ->references('id')
-                ->on('categories');
+            $table->unsignedBigInteger('category');
+//                ->index();
+//            $table->bigInteger('category')
+//                ->unsigned()
+//                ->index();
+//            $table->foreign('category')
+//                ->references('id')
+//                ->on('categories')
+//                ->onDelete('restrict');
             $table->string('img')
                 ->nullable(true)
                 ->default('no image');
@@ -48,6 +52,7 @@ class CreateNewsTables extends Migration
                 ->default(0);
             $table->dateTime('published');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
