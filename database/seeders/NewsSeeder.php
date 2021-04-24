@@ -2,23 +2,49 @@
 
 namespace Database\Seeders;
 
+use Faker\Generator;
 use Illuminate\Database\Seeder;
 
 class NewsSeeder extends Seeder
 {
+    /** @var Generator */
+    protected $faker;
+
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
-//        \DB::table('categories')
-//            ->insert($this->generateCategoryData());
+
+    public function run(Generator $faker) {
+        $this->faker = $faker;
 
         \DB::table('news')
-            ->insert($this->generateNewsData());
+            ->insert($this->generateData());
     }
+
+    protected function generateData() {
+        $data = [];
+        $data[] = [
+            'title' => $this->faker->unique()->word,
+            'content' => $this->faker->text(200),
+            'category' => rand(1, 3),
+            'source' => $this->faker->domainName,
+            'published' => $this->faker->date('Y-m-d'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+        return $data;
+    }
+
+//    public function run()
+//    {
+////        \DB::table('categories')
+////            ->insert($this->generateCategoryData());
+//
+//        \DB::table('news')
+//            ->insert($this->generateNewsData());
+//    }
 
     protected function generateCategoryData() {
         $data = [
@@ -32,8 +58,6 @@ class NewsSeeder extends Seeder
     }
 
     protected function generateNewsData() {
-//        $data = [];
-//        $data[] = [
         $data = [
             'title' => 'Test news '  . uniqid(),
             'content' => 'Etiam posuere quam ac quam. Maecenas aliquet accumsan leo.',
@@ -43,7 +67,6 @@ class NewsSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ];
-
         return $data;
     }
 }
