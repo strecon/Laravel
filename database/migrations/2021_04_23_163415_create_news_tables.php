@@ -13,16 +13,15 @@ class CreateNewsTables extends Migration
      */
     public function up()
     {
-        Schema::create('categoties', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
 //            $table->bigInteger('id')
 //                ->unsigned()
 //                ->autoIncrement()
 //                ->primary();
             $table->id();
-            $table->string(150);
-            // дата удаления
-//            $table->softDeletes();
+            $table->string('name',50);
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('news', function (Blueprint $table) {
@@ -33,15 +32,15 @@ class CreateNewsTables extends Migration
                 ->nullable(false);
             $table->text('content')
                 ->nullable(true);
-            $table->unsignedBigInteger('category');
-//                ->index();
 //            $table->bigInteger('category')
 //                ->unsigned()
 //                ->index();
-//            $table->foreign('category')
-//                ->references('id')
-//                ->on('categories')
-//                ->onDelete('restrict');
+            $table->unsignedBigInteger('category')
+                ->index();
+            $table->foreign('category')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('restrict');
             $table->string('img')
                 ->nullable(true)
                 ->default('no image');
