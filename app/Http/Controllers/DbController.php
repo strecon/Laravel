@@ -7,8 +7,40 @@ use \DB;
 
 class DbController extends Controller
 {
-    // for example, lesson5
+
     public function index() {
+        //---- hw5 ------
+//        $sql = "SELECT * FROM categories";
+//        $categories = DB::select($sql);
+//        dump($categories);
+
+        $categoriesTable = DB::table('categories')
+            ->get();
+//        dump($categoriesTable);
+        $categories = [];
+        foreach ($categoriesTable aS $strings) {
+//            dump($strings);
+            foreach ($strings as $key => $string) {
+                if ($key == 'name') {
+                    dump($string);
+                    $categories[] = $string;
+                }
+            }
+        }
+        dump($categories);
+
+        return view('db', ['categories' => $categories]);
+
+
+//        $boofer = [];
+//        foreach ($this->categories as $id => $category) {
+//            $boofer[$id] = $category;
+//        }
+//        dd($boofer);
+        //---- hw5 ------
+
+
+        //---- for example, lesson5 ------
         // сырые запросы
 //        $scl = "
 //            CREATE TABLE test (
@@ -22,6 +54,7 @@ class DbController extends Controller
 ////        $result = DB::statement($sql, ['content' => 'test']);
 //        $result = DB::insert($sql, ['content' => 'sdf433']);
 //        dd($result);
+
     // --------------------
 //        $sql = "SELECT * FROM test";
 //        $result = DB::select($sql);
@@ -38,9 +71,10 @@ class DbController extends Controller
 //        // коллецию - в массив объектов
 //        dd($result->toArray());
         // ------------------------
-        $sql = "SELECT * FROM test WHERE id = :id";
-        $result = DB::select($sql, ['id' => 2]);
-        dump($result);
 
+//        $sql = "SELECT * FROM test WHERE id = :id";
+//        $result = DB::select($sql, ['id' => 2]);
+//        dump($result);
+        //---- for example, lesson5 ------
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \DB;
 
 class News extends Model
 {
@@ -60,6 +61,7 @@ class News extends Model
         foreach ($this->categories as $id => $category) {
             $boofer[$id] = $category;
         }
+        dump($boofer);
         return $boofer;
 
 //        foreach ($boofer as $id => $category) {

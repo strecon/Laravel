@@ -60,6 +60,10 @@ Route::group([
         ->name('card');
 });
 
+// for lesson5
+Route::get('db', [\App\Http\Controllers\DbController::class, 'index'])
+    ->name('news-db');
+
 /* --------
 / Admin */
 Route::group([
@@ -92,5 +96,3 @@ Route::post('auth', [AuthController::class,'save'])
 //Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
 //    ->name('auth');
 
-// for example, lesson5
-Route::get('db', [\App\Http\Controllers\DbController::class, 'index']);
