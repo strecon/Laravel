@@ -27,8 +27,6 @@ class DbController extends Controller
             }
         }
 
-//        $category= [];  //?? needs
-
 //        $newsTable = DB::table('news')
 //            ->select(['title', 'content', 'category'])
 //            ->get();
