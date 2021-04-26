@@ -32,18 +32,18 @@ class DbController extends Controller
 //            ->get();
 //        dump($newsTable);
 
-        // ?? to migration --start --
+//------ ?? to migration --start --
 //        $sql = "SELECT `title`, `content`, `name` FROM news n, categories c WHERE c.id = n.category";
         $sql = "CREATE VIEW newsWithCategory
            AS SELECT `title`, `content`, `name`
            FROM news n, categories c
            WHERE c.id = n.category";
+//        $newsWithCategory = DB::statement($sql);  // launched once and then commented out
 
-//        $newsWithCategory = DB::statement($sql);
 //        dump($newsWithCategory);
 //        dump(DB::statement($sql));
         // "DROP VIEW newsWithCategory"
-        // ?? to migration -- end--
+//------ ?? to migration -- end--
 
         $newsWithCategory = DB::table('newsWithCategory')
             ->get()
@@ -60,7 +60,7 @@ class DbController extends Controller
             $list[] = $boofer;
         }
 
-        return view('db', ['categories' => $categories, 'category' => $category,'list' => $list]);
+        return view('db', ['categories' => $categories, 'list' => $list]);
 
 //------------ hw5 end---------------------------
 
