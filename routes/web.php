@@ -60,6 +60,7 @@ Route::group([
         ->name('card');
 });
 
+
 // for lesson5
 Route::get('db', [\App\Http\Controllers\DbController::class, 'index'])
     ->name('news-db');

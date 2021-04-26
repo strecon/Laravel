@@ -61,7 +61,7 @@ class News extends Model
         foreach ($this->categories as $id => $category) {
             $boofer[$id] = $category;
         }
-        dump($boofer);
+//        dump($boofer);
         return $boofer;
 
 //        foreach ($boofer as $id => $category) {
@@ -79,6 +79,7 @@ class News extends Model
                 $boofer[$id] = $item['title'];
             }
         }
+//        dump($boofer);
         return $boofer;
 
 //        foreach ($boofer as $id => $item) {

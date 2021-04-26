@@ -9,7 +9,7 @@ class DbController extends Controller
 {
 
     public function index() {
-        //---- hw5 ------
+        //---- hw5 start ------
 //        $sql = "SELECT * FROM categories";
 //        $categories = DB::select($sql);
 //        dump($categories);
@@ -17,30 +17,58 @@ class DbController extends Controller
         $categoriesTable = DB::table('categories')
             ->get();
 //        dump($categoriesTable);
+
         $categories = [];
-        foreach ($categoriesTable aS $strings) {
-//            dump($strings);
-            foreach ($strings as $key => $string) {
+        foreach ($categoriesTable aS $row) {
+            foreach ($row as $key => $item) {
                 if ($key == 'name') {
-                    dump($string);
-                    $categories[] = $string;
+                    $categories[] = $item;
                 }
             }
         }
-        dump($categories);
 
-        return view('db', ['categories' => $categories]);
+//        $category= [];  //?? needs
+
+//        $newsTable = DB::table('news')
+//            ->select(['title', 'content', 'category'])
+//            ->get();
+//        dump($newsTable);
+
+        // ?? to migration --start --
+//        $sql = "SELECT `title`, `content`, `name` FROM news n, categories c WHERE c.id = n.category";
+        $sql = "CREATE VIEW newsWithCategory
+           AS SELECT `title`, `content`, `name`
+           FROM news n, categories c
+           WHERE c.id = n.category";
+
+//        $newsWithCategory = DB::statement($sql);
+//        dump($newsWithCategory);
+//        dump(DB::statement($sql));
+        // "DROP VIEW newsWithCategory"
+        // ?? to migration -- end--
+
+        $newsWithCategory = DB::table('newsWithCategory')
+            ->get()
+            ->toArray();
+//        dump($newsWithCategory);
+
+        $list = [];
+
+        foreach ($newsWithCategory as $items) {
+            $boofer  = [];
+            foreach ($items as $key => $item) {
+                $boofer[$key] = $item;
+            }
+            $list[] = $boofer;
+        }
+
+        return view('db', ['categories' => $categories, 'category' => $category,'list' => $list]);
+
+//------------ hw5 end---------------------------
 
 
-//        $boofer = [];
-//        foreach ($this->categories as $id => $category) {
-//            $boofer[$id] = $category;
-//        }
-//        dd($boofer);
-        //---- hw5 ------
 
-
-        //---- for example, lesson5 ------
+//---------- for example, lesson5 ---------------
         // сырые запросы
 //        $scl = "
 //            CREATE TABLE test (
@@ -75,6 +103,7 @@ class DbController extends Controller
 //        $sql = "SELECT * FROM test WHERE id = :id";
 //        $result = DB::select($sql, ['id' => 2]);
 //        dump($result);
-        //---- for example, lesson5 ------
+//------------ for example, lesson5 ------------------
+
     }
 }
