@@ -24,7 +24,7 @@ class NewsController extends Controller
 
     // вывод новостей по выбранной категории
     public function showList($category) {
-        $list = (new News_old())->getNewsList($category);
+        $list = (new News())->getNewsList($category);
 //        dump($list);
 //        dd($category);
         return view('news.newsByCategory', ['category' => $category,'list' => $list]);

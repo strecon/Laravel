@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * App\Models\News
@@ -39,6 +40,30 @@ class News extends Model
 {
     use HasFactory;
 
+    // вывод новостей по выбранной категории
+    public function getNewsList($category) {
+
+        $getNews = News::query()
+            ->where('category', $category)
+            ->get()->toArray();    // or ->all()->toArray()
+//        dd($getNews);
+
+        $boofer = [];
+        foreach ($getNews as $id => $item) {
+//            dump($item, $id);
+            if($item['category'] == $category) {
+                $id = $item['id'];
+                $boofer[$id] = $item['content'];
+            }
+        }
+//        dd($boofer);
+        return $boofer;
+
+    }
+
+
+
+// ----- lesson6 -- start-----------------
     // принудительное направление на таблицу users (по-умолчанию - news)
 //    protected $table = 'users';
 
@@ -78,6 +103,6 @@ class News extends Model
 //        'token',
 //        'password',
 //    ];
-
+// ----- lesson6 -- end-----------------
 
 }
