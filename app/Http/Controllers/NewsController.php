@@ -32,7 +32,7 @@ class NewsController extends Controller
 
     // вывод выбранной новости
     public function showCard($id) {
-        $news = (new News_old())->getCard($id);
+        $news = (new News())->getCard($id);
 //        dd($news );
         return view('news.newsCard', ['news' => $news]);
     }

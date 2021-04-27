@@ -42,12 +42,10 @@ class News extends Model
 
     // вывод новостей по выбранной категории
     public function getNewsList($category) {
-
         $getNews = News::query()
             ->where('category', $category)
             ->get()->toArray();    // or ->all()->toArray()
 //        dd($getNews);
-
         $boofer = [];
         foreach ($getNews as $id => $item) {
 //            dump($item, $id);
@@ -58,7 +56,16 @@ class News extends Model
         }
 //        dd($boofer);
         return $boofer;
+    }
 
+    public function getCard($id) {
+        $news = News::query()
+            ->where('id', $id)
+            ->get()
+            ->toArray();
+//        dump($news);
+//        dd($news[0]['content']);
+         return $news[0]['content'];
     }
 
 
