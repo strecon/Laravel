@@ -27,17 +27,20 @@ class Category extends Model
 {
     use HasFactory;
 
-        public function getNewsCategories():array{
+        public function getNewsCategories(){
 
-            $getNewsCategories = Category::all()->toArray();
-//            dump($getNewsCategories);
-
-            $boofer = [];
-            foreach ($getNewsCategories as $item) {
-                $boofer[] = $item['name'];
-        }
-//        dd($boofer);
-        return $boofer;
+            $boofer = Category::all();
+            return $boofer;
+            // -------------------------
+//            $getNewsCategories = Category::all()->toArray();
+////            dump($getNewsCategories);
+//
+//            $boofer = [];
+//            foreach ($getNewsCategories as $item) {
+//                $boofer[] = $item['name'];
+//        }
+////        dd($boofer);
+//        return $boofer;
 
     }
 }

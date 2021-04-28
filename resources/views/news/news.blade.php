@@ -8,12 +8,12 @@
     <h2>News Categories</h2>
     <br>
     <div class="news-tiles">
-        @foreach($categories as $id => $category)
+        @foreach($categories as $category)
             @php
-                $url = route('news::list', ['category' => $id + 1]);
+                $url = route('news::list', ['category' => $category->id]);
             @endphp
             <div class="news-tile">
-                <a href='{{$url}}'>{{$category}}</a>
+                <a href='{{$url}}'>{{$category->name}}</a>
             </div>
         @endforeach
     </div>
