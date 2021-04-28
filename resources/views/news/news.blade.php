@@ -11,9 +11,10 @@
         @foreach($categories as $category)
             @php
                 $url = route('news::list', ['category' => $category->id]);
+                $categoryName = $category->name;
             @endphp
             <div class="news-tile">
-                <a href='{{$url}}'>{{$category->name}}</a>
+                <a href='{{$url}}'>{{$categoryName}}</a>
             </div>
         @endforeach
     </div>

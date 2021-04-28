@@ -66,13 +66,23 @@ class News extends Model
     }
 
     public function getCard($id) {
-        $news = News::query()
+
+        $boofer = News::query()
             ->where('id', $id)
-            ->get()
-            ->toArray();
-//        dump($news);
-//        dd($news[0]['content']);
-         return $news[0]['content'];
+            ->get();
+//        dump($boofer);
+//        dd($boofer);
+        return $boofer[0];
+
+        // -----------------------
+//        $news = News::query()
+//            ->where('id', $id)
+//            ->get()
+//            ->toArray();
+////        dump($news);
+////        dd($news[0]['content']);
+//         return $news[0]['content'];
+//        // -----------------------
     }
 
 

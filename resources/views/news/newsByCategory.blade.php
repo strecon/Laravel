@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-    @parent {{$category}} Category
+    @parent Category
 @endsection
 
 

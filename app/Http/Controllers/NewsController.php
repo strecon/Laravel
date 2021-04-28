@@ -16,7 +16,7 @@ class NewsController extends Controller
     public function index() {
 
         $categories = (new Category())->getNewsCategories();
-        dump($categories);
+//        dump($categories);
 //        dd($categories);
 
         return view('news.news', ['categories' => $categories]);
@@ -25,8 +25,9 @@ class NewsController extends Controller
     // вывод новостей по выбранной категории
     public function showList($category) {
         $list = (new News())->getNewsList($category);
-        dump($list);
+//        dump($list);
 //        dd($category);
+//        $categoryName = (new Category())->getCategoryName($category);
         return view('news.newsByCategory', ['category' => $category,'list' => $list]);
     }
 
