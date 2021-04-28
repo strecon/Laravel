@@ -28,10 +28,10 @@ class Category extends Model
     use HasFactory;
 
         public function getNewsCategories(){
-
             $boofer = Category::all();
             return $boofer;
-            // -------------------------
+
+// -------------------------
 //            $getNewsCategories = Category::all()->toArray();
 ////            dump($getNewsCategories);
 //
@@ -41,6 +41,7 @@ class Category extends Model
 //        }
 ////        dd($boofer);
 //        return $boofer;
+// -------------------------
 
     }
 }

@@ -54,6 +54,7 @@ Route::group([
     Route::get('/', [NewsController::class, 'index'])
         ->name('categories');
     Route::get('/list/{category}', [NewsController::class, 'showList'])
+        ->where('id', '[0-9]+')
         ->name('list');
     Route::get('/card/{id}', [NewsController::class, 'showCard'])
         ->where('id', '[0-9]+')
