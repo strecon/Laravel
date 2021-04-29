@@ -13,7 +13,7 @@
     <br>
     <article>
         <div class="news_img">
-            <img src="{{$news->img}}">
+            <img src="{{$news->img}}" alt="no image">
         </div>
         <br>
         <div>

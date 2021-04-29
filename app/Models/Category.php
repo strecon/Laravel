@@ -45,9 +45,7 @@ class Category extends Model
 
     }
 
-//    public function getCategoryName($category) {
-//        $boofer = Category::get()->where('id', $category)[0]->name;
-//        dd($boofer);
-//        return $boofer;
-//    }
+        public function news() {
+            return $this->hasMany(News::class);
+        }
 }

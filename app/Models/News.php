@@ -66,15 +66,14 @@ class News extends Model
     }
 
     public function getCard($id) {
-
         $boofer = News::query()
             ->where('id', $id)
             ->get();
-//        dump($boofer);
 //        dd($boofer);
         return $boofer[0];
 
         // -----------------------
+
 //        $news = News::query()
 //            ->where('id', $id)
 //            ->get()
@@ -85,48 +84,7 @@ class News extends Model
 //        // -----------------------
     }
 
-
-
-// ----- lesson6 -- start-----------------
-    // принудительное направление на таблицу users (по-умолчанию - news)
-//    protected $table = 'users';
-
-    // принудительное переопределения поля primaryKey в passport (по-умолчанию - id)
-//    protected $primaryKey = 'passport';
-
-    // принудительное переопределения подключения к БД (по-умолчанию - из .env, где other_db - альас из /config/database.php)
-//    protected $connection = 'other_db';
-
-    // отмена автоматического заполнения полей ХХХ датами
-//    public $timestamps = false;
-
-    // перечень доверенных атрибутов (должны быть использованы или перечень не создается вовсе)
-    // названия ключей соответствуют названиям столюцов из БД
-    // используется для массового присвоения
-//    protected $fillable = [
-//        'title' => '',
-//        'content' => '',
-//        // ...
-//    ];
-    // Упрощает обращение к БД:
-    // вместо
-//    $news->title = $array['title'];
-//    $news->content = $array['content'];
-    // использую:
-//    $news->$fill($array);
-// тем самым подгружая в БД массив $array целиком (в один ход :)
-
-    // $casts задает тип принимаемых данных. Облегчает задачи по преобразованию
-    // Например, на сервере лежит джейсон, а здесь прописан массив - при получении джейсон преобразуется в массив
-//    protected $casts = [
-//        'email_verified_at' => 'datetime',
-//    ];
-
-    // Поля, которые при преобразовании в массис не пойдут
-//    protected $hidden = [
-//        'token',
-//        'password',
-//    ];
-// ----- lesson6 -- end-----------------
-
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }
