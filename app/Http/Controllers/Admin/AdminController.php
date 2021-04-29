@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 // для разных задач класс Request можно переопределять:
@@ -19,15 +20,31 @@ class AdminController extends Controller
 //        exit;
     }
 
+    // show ..
+    public function allNews(News $news) {
+//        dump($news->all());
+        return view('admin.showNews', ['news' => $news->get()]);
+    }
+
+    public function allCategories() {
+        echo "<h3>Admin Panel</h3>
+            <p>show all categories</p>";
+        exit;
+    }
+
     //save
     public function save() {
         // save data somewhere
         return redirect()->route('admin::add');
     }
 
-    //add
-    public function add() {
-        return view('admin.add');
+    //add ..
+    public function addNews() {
+        return view('admin.addNews');
+    }
+
+    public function addCategory() {
+        return view('admin.addCategory');
     }
 
     // add with examples 1.. --------------
@@ -72,14 +89,6 @@ class AdminController extends Controller
 //        return response(view('admin.add'));
 //    }
         // ------------------------------
-
-
-    // show ..
-    public function show() {
-        echo "<h3>Admin Panel</h3>
-            <p>show news</p>";
-        exit;
-    }
 
     // update ..
     public function update() {

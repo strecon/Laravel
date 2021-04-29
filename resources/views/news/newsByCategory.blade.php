@@ -20,7 +20,8 @@
                 <div class="news_img-small col-xl-1"></div>
                 <div class="col-xl-11">
                     <h6>{{$card->title}}</h6>
-                    <a href='{{$url}}'>{{$card->content}}</a></div>
+                    <a href='{{$url}}'>{{$card->content}}</a>
+                </div>
             </div>
         <br>
     @endforeach
