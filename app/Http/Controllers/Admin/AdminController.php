@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -26,20 +27,15 @@ class AdminController extends Controller
         return view('admin.showNews', ['news' => $news->get()]);
     }
 
-    public function allCategories() {
-        echo "<h3>Admin Panel</h3>
-            <p>show all categories</p>";
-        exit;
-    }
-
-    //save
-    public function save() {
-        // save data somewhere
-        return redirect()->route('admin::add');
+    public function allCategories(Category $category) {
+//        echo "<h3>Admin Panel</h3>
+//            <p>show all categories</p>";
+        return view('admin.showCategories', ['category' => $category->get()]);
     }
 
     //add ..
     public function addNews() {
+        //
         return view('admin.addNews');
     }
 
@@ -95,6 +91,12 @@ class AdminController extends Controller
         echo "<h3>Admin Panel</h3>
             <p>update news</p>";
         exit;
+    }
+
+    //save
+    public function save() {
+        // save data somewhere
+        return redirect()->route('admin::add');
     }
 
     // delete ..

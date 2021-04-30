@@ -21,9 +21,11 @@
             <div class="news_img-small col-xl-1"></div>
             <div class="col-xl-11">
                 <h5>{{$item->title}}</h5>
+                <h6>category: {{$item->category}}</h6>
                 <p>{{$item->content}}</p>
                 <p><small>{{$item->created_at}}</small></p>
-                <button type="button" class="btn btn-success">Update</button>&nbsp;&nbsp;&nbsp;
+                <a href="{{route('admin::addNews', $item->id)}}"><button type="button" class="btn btn-success">Update</button></a>
+                &nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-warning">Delete</button>
             </div>
         </div>

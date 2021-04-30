@@ -1,0 +1,32 @@
+@extends('layout')
+
+@section('title')
+    @parent Admin Panel
+@endsection
+
+@section('style_link')
+    <link href="../../css/app.css" rel="stylesheet">
+@endsection
+
+{{--@php--}}
+{{--    dump($category);--}}
+{{--@endphp--}}
+
+@section('page_content')
+    <a href="{{route('admin::addCategory') }}"><button type="button" class="btn btn-info">Add category</button></a>
+    <hr>
+    @foreach($category as $item)
+        <div class="news_list-item">
+            <div class="news_img-small col-xl-1"></div>
+            <div class="col-xl-11">
+                <h6>category id: {{$item->id}}</h6>
+                <p>{{$item->name}}</p>
+                <p><small>{{$item->created_at}}</small></p>
+                <a href="{{route('admin::addCategory', $item->id)}}"><button type="button" class="btn btn-success">Update</button></a>
+                &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-warning">Delete</button>
+            </div>
+        </div>
+        <hr>
+    @endforeach
+@endsection

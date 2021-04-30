@@ -76,20 +76,24 @@ Route::group([
         ->name('panel');
 //    Route::match(['get', 'post'],'/add', [AdminController::class, 'add'])
 //        ->name('add');
-    Route::get('/addNews', [AdminController::class, 'addNews'])
-        ->name('addNews');
-    Route::get('/addCategory', [AdminController::class, 'addCategory'])
-        ->name('addCategory');
-    Route::post('/add', [AdminController::class, 'save'])
-        ->name('save');
+
     Route::get('/showNews', [AdminController::class, 'allNews'])
         ->name('showNews');
     Route::get('/showCategories', [AdminController::class, 'allCategories'])
         ->name('showCategories');
-    Route::get('/update', [AdminController::class, 'update'])
-        ->name('update');
-    Route::get('/delete', [AdminController::class, 'delete'])
-        ->name('delete');
+
+    Route::get('/addNews', [AdminController::class, 'addNews'])
+        ->name('addNews');
+    Route::get('/addCategory/', [AdminController::class, 'addCategory'])
+        ->name('addCategory');
+
+    Route::post('/add', [AdminController::class, 'save'])
+        ->name('save');
+
+//    Route::get('/update', [AdminController::class, 'update'])
+//        ->name('update');
+//    Route::get('/delete', [AdminController::class, 'delete'])
+//        ->name('delete');
 });
 
 /* --------
