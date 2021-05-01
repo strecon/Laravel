@@ -26,7 +26,8 @@ class AdminController extends Controller
 //        dump($news->all());
         $news = News::orderBy('created_at', 'desc')->paginate(2);
 //        dd($news);
-        return view('admin.showNews', ['news' => $news]);
+        return view('admin.showNews', compact('news'));
+//        return view('admin.showNews', ['news' => $news]);
     }
 
     public function allCategories(Category $category) {

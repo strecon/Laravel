@@ -14,7 +14,7 @@
 {{--        <span><a href="#">Update news</a></span>--}}
 {{--        <span>&nbsp;&nbsp;&nbsp;</span>--}}
 {{--        <span><a href="#">Delete news</a></span></p>--}}
-    <button type="button" class="btn btn-info">Add news</button>
+    <span><a href="{{route('admin::panel')}}">Admin panel ></a><a href="{{route('admin::showNews')}}">  news list</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><button type="button" class="btn btn-info">Add news</button>
     <hr>
     @foreach($news as $item)
         <div class="news_list-item">
