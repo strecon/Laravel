@@ -22,9 +22,11 @@ class AdminController extends Controller
     }
 
     // show ..
-    public function allNews(News $news) {
+    public function allNews() {
 //        dump($news->all());
-        return view('admin.showNews', ['news' => $news->get()]);
+        $news = News::orderBy('created_at', 'desc')->paginate(2);
+//        dd($news);
+        return view('admin.showNews', ['news' => $news]);
     }
 
     public function allCategories(Category $category) {
