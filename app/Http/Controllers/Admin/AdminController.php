@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
+use function React\Promise\all;
 
 // для разных задач класс Request можно переопределять:
 // Illuminate\Http\Request; = myRequestClass1;
@@ -25,15 +26,15 @@ class AdminController extends Controller
     public function allNews() {
 //        dump($news->all());
         $news = News::orderBy('created_at', 'desc')->paginate(2);
-//        dd($news);
-        return view('admin.showNews', compact('news'));
 //        return view('admin.showNews', ['news' => $news]);
+        return view('admin.showNews', compact('news')); // v1
     }
 
-    public function allCategories(Category $category) {
-//        echo "<h3>Admin Panel</h3>
-//            <p>show all categories</p>";
-        return view('admin.showCategories', ['category' => $category->get()]);
+    public function allCategories() {
+//        $category = Category::all();
+        $category = Category::orderBy('name')->paginate(2);
+//        return view('admin.showCategories', ['category' => $category->get()]);
+        return view('admin.showCategories', ['category' => $category]); // v2
     }
 
     //add ..

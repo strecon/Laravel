@@ -30,4 +30,5 @@
         </div>
         <hr>
     @endforeach
+    {{$category->links()}}
 @endsection
