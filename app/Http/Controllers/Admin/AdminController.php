@@ -8,6 +8,9 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use function React\Promise\all;
 
+use \App\Http\Requests\AdminSaveCategoryRequest;
+use \App\Http\Requests\AdminSaveNewsRequest;
+
 // для разных задач класс Request можно переопределять:
 // Illuminate\Http\Request; = myRequestClass1;
 // Illuminate\Http\Request; = myRequestClass2;
@@ -46,27 +49,28 @@ class AdminController extends Controller
         return view('admin.addCategory');
     }
 
-    public function saveNews(Request $request) {
+    public function saveNews(AdminSaveNewsRequest $request) {
 //        dump($request->method());
 //        dump($request->input());
 //        dump($request->input('content'));
 //        dd($request->all());
 
-        $validation = $request->validate([
-            'category' => 'required|exists:categories,id|digits_between:1,10',
-            'title' => 'required|unique:news,title|min:3|max:150',
-//            'img' => 'image|file',
-            'content' => 'required'
-        ]);
+//        $validation = $request->validate([
+//            'category' => 'required|exists:categories,id|digits_between:1,10',
+//            'title' => 'required|unique:news,title|min:3|max:150',
+////            'img' => 'image|file',
+//            'content' => 'required'
+//        ]); // This rules as public function remove into News model
+
 //        dump(Request::old());
         return $request->all();
     }
 
-    public function saveCategory(Request $request) {
+    public function saveCategory(AdminSaveCategoryRequest $request) {
 //        dd($request->all());
-        $validation = $request->validate([
-            'name' => 'required|unique:categories|alpha|max:15'
-        ]);
+//        $validation = $request->validate([
+//            'name' => 'required|unique:categories|alpha|max:15'
+//        ]);
         return $request->all();
     }
 
