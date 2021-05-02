@@ -39,12 +39,16 @@ class AdminController extends Controller
 
     //add ..
     public function addNews() {
-        //
         return view('admin.addNews');
     }
 
     public function addCategory() {
         return view('admin.addCategory');
+    }
+
+    public function saveCategory(Request $request) {
+//        dump(Request::input());
+        return $request->method();
     }
 
     // add with examples 1.. --------------

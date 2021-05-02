@@ -84,17 +84,21 @@ Route::group([
 
     Route::get('/addNews', [AdminController::class, 'addNews'])
         ->name('addNews');
-    Route::get('/addCategory/', [AdminController::class, 'addCategory'])
+    Route::get('/addCategory', [AdminController::class, 'addCategory'])
         ->name('addCategory');
 
-    Route::post('/add', [AdminController::class, 'save'])
-        ->name('save');
+    Route::post('/addCategory', [AdminController::class, 'saveCategory'])
+        ->name('saveCategory');
 
+
+//    Route::post('/add', [AdminController::class, 'save'])
+//        ->name('save');
 //    Route::get('/update', [AdminController::class, 'update'])
 //        ->name('update');
 //    Route::get('/delete', [AdminController::class, 'delete'])
 //        ->name('delete');
 });
+
 
 /* --------
 / Authorisation */
