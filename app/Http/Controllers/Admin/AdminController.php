@@ -58,6 +58,7 @@ class AdminController extends Controller
 //            'img' => 'image|file',
             'content' => 'required'
         ]);
+//        dump(Request::old());
         return $request->all();
     }
 
