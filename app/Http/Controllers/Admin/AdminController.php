@@ -53,8 +53,8 @@ class AdminController extends Controller
 //        dd($request->all());
 
         $validation = $request->validate([
-            'category' => 'required|digits_between:1,10',
-            'title' => 'required|unique:news|min:3|max:150',
+            'category' => 'required|exists:categories,id|digits_between:1,10',
+            'title' => 'required|unique:news,title|min:3|max:150',
 //            'img' => 'image|file',
             'content' => 'required'
         ]);
@@ -64,7 +64,7 @@ class AdminController extends Controller
     public function saveCategory(Request $request) {
 //        dd($request->all());
         $validation = $request->validate([
-            'name' => 'required|unique:categories|max:15'
+            'name' => 'required|unique:categories|alpha|max:15'
         ]);
         return $request->all();
     }
