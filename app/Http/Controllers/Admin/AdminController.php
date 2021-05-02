@@ -47,13 +47,25 @@ class AdminController extends Controller
     }
 
     public function saveNews(Request $request) {
-//        dd($request->method());
-        dd($request->all());
+//        dump($request->method());
+//        dump($request->input());
+//        dump($request->input('content'));
+//        dd($request->all());
+
+        $validation = $request->validate([
+            'category' => 'required|digits_between:1,10',
+            'title' => 'required|unique:news|min:3|max:150',
+//            'img' => 'image|file',
+            'content' => 'required'
+        ]);
         return $request->all();
     }
 
     public function saveCategory(Request $request) {
 //        dd($request->all());
+        $validation = $request->validate([
+            'name' => 'required|unique:categories|max:15'
+        ]);
         return $request->all();
     }
 
