@@ -46,9 +46,15 @@ class AdminController extends Controller
         return view('admin.addCategory');
     }
 
+    public function saveNews(Request $request) {
+//        dd($request->method());
+        dd($request->all());
+        return $request->all();
+    }
+
     public function saveCategory(Request $request) {
-//        dump(Request::input());
-        return $request->method();
+//        dd($request->all());
+        return $request->all();
     }
 
     // add with examples 1.. --------------

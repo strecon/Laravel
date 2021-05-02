@@ -87,6 +87,8 @@ Route::group([
     Route::get('/addCategory', [AdminController::class, 'addCategory'])
         ->name('addCategory');
 
+    Route::post('/addNews', [AdminController::class, 'saveNews'])
+        ->name('saveNews');
     Route::post('/addCategory', [AdminController::class, 'saveCategory'])
         ->name('saveCategory');
 
