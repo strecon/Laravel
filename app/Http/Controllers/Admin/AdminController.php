@@ -51,7 +51,8 @@ class AdminController extends Controller
 
     public function saveNews(AdminSaveNewsRequest $request) {
 
-//                dd(\App::currentLocale());
+//        dd(\App::currentLocale());
+//        \App::setLocale('ru');
 
 //        dump($request->method());
 //        dump($request->input('content'));
@@ -68,7 +69,7 @@ class AdminController extends Controller
         $news->title = $request->input('title');
         $news->content = $request->input('content');
         $news->published = now();
-        // add img src
+        // add img src later
         $news->save();
 
         return redirect()->route('admin::showNews')->with('success', 'Yours news is added!');
@@ -88,6 +89,7 @@ class AdminController extends Controller
 
         return redirect()->route('admin::showCategories')->with('success', 'Added a new category!');
     }
+
 
     // add with examples 1.. --------------
 //    public function add(Request $request) {

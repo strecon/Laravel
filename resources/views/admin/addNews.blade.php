@@ -14,8 +14,8 @@
     <br>
     <span><a href="{{route('admin::panel')}}">Admin panel ></a><a href="{{route('admin::showNews')}}">  news list</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <br>
-    <br>
-    @include('showErrors')
+{{--    <br>--}}
+{{--    @include('showErrors')--}}
     <form action="{{route('admin::saveNews')}}" method="post">
         @csrf
         <div class="form-group">
