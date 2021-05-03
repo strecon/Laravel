@@ -14,23 +14,23 @@ class AdminAddNewsTest extends DuskTestCase
      * @return void
      */
 
-//    public function testExample()
-//    {
-//        $this->browse(function (Browser $browser) {
-//            $browser->visit('/')
-//                ->clickLink('Admin')
+    public function testExample()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                ->clickLink('Admin')
+                ->assertSee('blackHole :)')
+                ->clickLink('News list')
+                ->clickLink('Add news')
+                ->type('category', '')
+                ->type('title', '')
+                ->type('content', '')
+                ->press('Add / Update')
 //                ->assertSee('blackHole :)')
-//                ->clickLink('News list')
-//                ->clickLink('Add news')
-//                ->type('category', '')
-//                ->type('title', '')
-//                ->type('content', '')
-//                ->press('Add / Update')
-////                ->assertSee('blackHole :)')
-//                ->assertSee('required')
-//            ;
-//        });
-//    }
+                ->assertSee('required')
+            ;
+        });
+    }
 
     public function testAddCategoryForm() {
         $this->browse(function (Browser $browser) {
@@ -43,5 +43,4 @@ class AdminAddNewsTest extends DuskTestCase
                 ->assertSee('The category name field is required.');
         });
     }
-
 }
