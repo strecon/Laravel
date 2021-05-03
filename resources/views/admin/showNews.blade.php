@@ -17,7 +17,7 @@
     <a href="{{route('admin::addNews')}}"><button type="button" class="btn btn-info">Add news</button></a>
     <hr>
     @include('showMessages')
-    @foreach($news as $item)
+@foreach($news as $item)
         <div class="news_list-item">
             <div class="news_img-small col-xl-1"></div>
             <div class="col-xl-11">

@@ -50,6 +50,9 @@ class AdminController extends Controller
     }
 
     public function saveNews(AdminSaveNewsRequest $request) {
+
+//                dd(\App::currentLocale());
+
 //        dump($request->method());
 //        dump($request->input('content'));
 
@@ -72,6 +75,8 @@ class AdminController extends Controller
     }
 
     public function saveCategory(AdminSaveCategoryRequest $request) {
+
+//        dd(\App::currentLocale());
 
 //        $validation = $request->validate([
 //            'name' => 'required|unique:categories|alpha|max:15'

@@ -82,9 +82,9 @@ Route::group([
     Route::get('/showCategories', [AdminController::class, 'allCategories'])
         ->name('showCategories');
 
-    Route::get('/addNews', [AdminController::class, 'addNews'])
+    Route::get('/addNews/{id?}', [AdminController::class, 'addNews'])
         ->name('addNews');
-    Route::get('/addCategory', [AdminController::class, 'addCategory'])
+    Route::get('/addCategory/{id?}', [AdminController::class, 'addCategory'])
         ->name('addCategory');
 
     Route::post('/addNews', [AdminController::class, 'saveNews'])
