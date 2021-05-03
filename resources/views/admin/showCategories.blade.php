@@ -12,6 +12,7 @@
     <span><a href="{{route('admin::panel')}}">Admin panel ></a><a href="{{route('admin::showCategories')}}">  categories list</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <a href="{{route('admin::addCategory') }}"><button type="button" class="btn btn-info">Add category</button></a>
     <hr>
+    @include('showMessages')
     @foreach($category as $item)
         <div class="news_list-item">
             <div class="news_img-small col-xl-1"></div>

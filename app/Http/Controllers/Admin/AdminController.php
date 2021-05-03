@@ -51,9 +51,7 @@ class AdminController extends Controller
 
     public function saveNews(AdminSaveNewsRequest $request) {
 //        dump($request->method());
-//        dump($request->input());
 //        dump($request->input('content'));
-//        dd($request->all());
 
 //        $validation = $request->validate([
 //            'category' => 'required|exists:categories,id|digits_between:1,10',
@@ -62,16 +60,28 @@ class AdminController extends Controller
 //            'content' => 'required'
 //        ]); // This rules as public function remove into News model
 
-//        dump(Request::old());
-        return $request->all();
+        $news = new News();
+        $news->category = $request->input('category');
+        $news->title = $request->input('title');
+        $news->content = $request->input('content');
+        $news->published = now();
+        // add img src
+        $news->save();
+
+        return redirect()->route('admin::showNews')->with('success', 'Yours news is added!');
     }
 
     public function saveCategory(AdminSaveCategoryRequest $request) {
-//        dd($request->all());
+
 //        $validation = $request->validate([
 //            'name' => 'required|unique:categories|alpha|max:15'
-//        ]);
-        return $request->all();
+//        ]); // This rules as public function remove into Category model
+
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->save();
+
+        return redirect()->route('admin::showCategories')->with('success', 'Added a new category!');
     }
 
     // add with examples 1.. --------------
