@@ -10,4 +10,8 @@
                 <li class="navbar-li"><a href="{{ route('admin::panel') }}">{{__('labels.menu_admin')}}</a></li>
             </ul>
     </div>
+    <ul class="nav">
+        <a class="dropdown-item" href="{{route('locale', ['locale' => 'en'])}}">en</a>
+        <a class="dropdown-item" href="{{route('locale', ['locale' => 'ru'])}}">ru</a>
+    </ul>
 </nav>

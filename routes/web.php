@@ -8,6 +8,7 @@ use \App\Http\Controllers\AboutController;
 
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\Admin\AdminController;
+use \App\Http\Controllers\LocaleController;
 
 use Illuminate\Http\Request;
 
@@ -26,7 +27,11 @@ use Illuminate\Http\Request;
 //});
 */
 
-
+/* -------
+/ Lacale */
+Route::get('/locale/{locale}', [LocaleController::class, 'changeLocale'])
+    ->where('locale', '\w+')
+    ->name('locale');
 
 /* -------
 / Home */
@@ -63,7 +68,7 @@ Route::group([
 
 
 // for lesson5
-Route::get('db', [\App\Http\Controllers\DbController::class, 'index'])
+Route::get('/db', [\App\Http\Controllers\DbController::class, 'index'])
     ->name('news-db');
 
 /* --------
@@ -105,9 +110,9 @@ Route::group([
 /* --------
 / Authorisation */
 
-Route::get('auth', [AuthController::class,'auth'])
+Route::get('/auth', [AuthController::class,'auth'])
     ->name('auth');
-Route::post('auth', [AuthController::class,'save'])
+Route::post('/auth', [AuthController::class,'save'])
     ->name('auth::save');
 //Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
 //    ->name('auth');
