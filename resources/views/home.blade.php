@@ -5,7 +5,7 @@
 @endsection
 
 @section('page_content')
-    <H2>Welcom to Home Page!</H2>
+    <H2>{{__('labels.home_h2')}}</H2>
     <br><br>
-    <p><a href="{{ route('news-db') }}">News from DB >></a></p>
+    <p><a href="{{ route('news-db') }}">{{__('labels.home_p_1')}} >></a></p>
 @endsection

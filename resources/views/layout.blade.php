@@ -18,9 +18,9 @@
     @include('nav.siteMenu')
     @include('header.siteHeader')
 
-    @php
-        dump(\Session::get('lacale'));
-    @endphp
+{{--    @php--}}
+{{--        dump(\Session::get('locale'));--}}
+{{--    @endphp--}}
     <hr>
     <div class="container">
         @yield('page_content')

@@ -11,7 +11,7 @@
             </ul>
     </div>
     <ul class="nav">
-        <a class="dropdown-item" href="{{route('locale', ['locale' => 'en'])}}">en</a>
-        <a class="dropdown-item" href="{{route('locale', ['locale' => 'ru'])}}">ru</a>
+        <li><a class="dropdown-item" href="{{route('changeLocale', ['locale' => 'en'])}}">en</a></li>
+        <li><a class="dropdown-item" href="{{route('changeLocale', ['locale' => 'ru'])}}">ru</a></li>
     </ul>
 </nav>

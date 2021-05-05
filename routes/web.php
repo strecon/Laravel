@@ -31,7 +31,7 @@ use Illuminate\Http\Request;
 / Lacale */
 Route::get('/locale/{locale}', [LocaleController::class, 'changeLocale'])
     ->where('locale', '\w+')
-    ->name('locale');
+    ->name('changeLocale');
 
 /* -------
 / Home */

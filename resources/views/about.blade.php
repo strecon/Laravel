@@ -5,11 +5,11 @@
 @endsection
 
 @section('page_content')
-    <h2>About us</h2>
+    <h2>{{__("labels.about_h2")}}</h2>
     <br>
-    <h6>Drag and drop - this is our job!</h6>
+    <h6>{{__('labels.about_h6')}}</h6>
     <br><br>
-    <p>Phone: +7 800 500-0123</p>
-    <p>E-mail: info@hotnews.com</p>
-    <p>Map</p>
+    <p>{{__('labels.about_phone')}}: +7 800 500-0123</p>
+    <p>{{__('labels.about_email')}}: info@hotnews.com</p>
+    <p>{{__('labels.about_map')}}</p>
 @endsection

@@ -5,7 +5,7 @@
 @endsection
 
 @section('page_content')
-    <h2>News Categories</h2>
+    <h2>{{__('labels.news_h2')}}</h2>
     <br>
     <div class="news-tiles">
         @foreach($categories as $category)
