@@ -32,9 +32,13 @@
                     @endif
                 @else
                 <!-- Simple Admin Authorisation ..yet.. --start-->
-                    @if(Auth::user()->name == 'Admin')
+                    @if(Auth::user()->is_admin)
+{{--                        @if(Auth::user()->name == 'Admin')--}}
                         <li class="nav-link"><a href="{{ route('admin::panel') }}">{{__('labels.menu_admin')}}</a></li>
+                    @else
+                        <li class="nav-link"><a href="#">{{Auth::user()->name}}</a></li>
                     @endif
+
                 <!-- Simple Admin Authorisation --end -->
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

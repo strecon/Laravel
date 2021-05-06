@@ -86,7 +86,7 @@ Route::get('/db', [\App\Http\Controllers\DbController::class, 'index'])
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin::',
-    'middleware' => ['auth']
+    'middleware' => ['auth', 'is_admin']
 ], function() {
     Route::get('/', [AdminController::class, 'admin'])
         ->name('panel');
