@@ -26,6 +26,7 @@ return [
     'admin_h2' => 'Admin Panel',
     'admin_p_1' => 'News list',
     'admin_p_2' => 'Categories list',
+    'admin_p_3' => 'Users list',
     'admin_newsList_menu_1' => 'Admin panel',
     'admin_newsList_menu_2' => 'news list',
     'admin_newsList_add' => 'Add news',
@@ -53,5 +54,11 @@ return [
     'admin_categAdd_name' => 'category name',
     'admin_categAdd_namePlhdr' => 'enter a name',
     'admin_categAdd_btn' => 'Add / Update',
+
+    'admin_usersList_menu_1' => 'Admin panel',
+    'admin_usersList_menu_2' => 'users list',
+    'admin_userList_update' => 'Update',
+    'admin_userList_delete' => 'Delete',
+    'admin_userList_group' => 'group',
     'footer_text' => 'Hot News'
 ];

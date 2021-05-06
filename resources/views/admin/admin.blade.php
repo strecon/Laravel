@@ -9,4 +9,5 @@
     <br>
     <p><a href="{{ route('admin::showNews') }}">{{__('labels.admin_p_1')}}</a></p>
     <p><a href="{{ route('admin::showCategories') }}">{{__('labels.admin_p_2')}}</a></p>
+    <p><a href="{{ route('admin::showUsers') }}">{{__('labels.admin_p_3')}}</a></p>
 @endsection

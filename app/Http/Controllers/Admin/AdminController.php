@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 use function React\Promise\all;
 
@@ -38,6 +39,11 @@ class AdminController extends Controller
         $category = Category::orderBy('name')->paginate(2);
 //        return view('admin.showCategories', ['category' => $category->get()]);
         return view('admin.showCategories', ['category' => $category]); // v2
+    }
+
+    public function allUsers() {
+        $users = User::orderBy('name', 'asc')->paginate(2);
+        return view('admin.showUsers', compact('users'));
     }
 
     //add ..

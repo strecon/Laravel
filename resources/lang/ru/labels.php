@@ -26,6 +26,7 @@ return [
     'admin_h2' => 'Админка',
     'admin_p_1' => 'Список новостей',
     'admin_p_2' => 'Список категорий',
+    'admin_p_3' => 'Список пользователей',
     'admin_newsList_menu_1' => 'Админка',
     'admin_newsList_menu_2' => 'список новостей ',
     'admin_newsList_add' => 'Добавить новость',
@@ -53,5 +54,10 @@ return [
     'admin_categAdd_name' => 'название категории',
     'admin_categAdd_namePlhdr' => 'введите название',
     'admin_categAdd_btn' => 'Добавить / Обновить',
+    'admin_usersList_menu_1' => 'Админка',
+    'admin_usersList_menu_2' => 'список пользователей',
+    'admin_userList_update' => 'Изменить',
+    'admin_userList_delete' => 'Удалить',
+    'admin_userList_group' => 'группа',
     'footer_text' => 'Горячие Новости'
 ];

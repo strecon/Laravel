@@ -27,18 +27,28 @@ use Illuminate\Http\Request;
 //});
 */
 
+
 /* -------
 / Lacale */
 Route::get('/locale/{locale}', [LocaleController::class, 'changeLocale'])
     ->where('locale', '\w+')
     ->name('changeLocale');
 
+
+/* --------
+/ Home -- ui auth */
+Auth::routes();
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
 /* -------
-/ Home */
+/ Home_Old -- before install ui auth */
 
 //Route::get('/', '\App\Http\Controllers\HomeController@home');
-Route::get('/', [HomeController::class, 'home'])
-    ->name('root');
+//Route::get('/', [HomeController::class, 'home'])
+//    ->name('root');
 
 
 /* --------
@@ -86,6 +96,8 @@ Route::group([
         ->name('showNews');
     Route::get('/showCategories', [AdminController::class, 'allCategories'])
         ->name('showCategories');
+    Route::get('/showUsers', [AdminController::class, 'allUsers'])
+        ->name('showUsers');
 
     Route::get('/addNews/{id?}', [AdminController::class, 'addNews'])
         ->name('addNews');
@@ -110,10 +122,10 @@ Route::group([
 /* --------
 / Authorisation */
 
-Route::get('/auth', [AuthController::class,'auth'])
-    ->name('auth');
-Route::post('/auth', [AuthController::class,'save'])
-    ->name('auth::save');
+//Route::get('/auth', [AuthController::class,'auth'])
+//    ->name('auth');
+//Route::post('/auth', [AuthController::class,'save'])
+//    ->name('auth::save');
 //Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
 //    ->name('auth');
 
