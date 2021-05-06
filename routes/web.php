@@ -113,14 +113,6 @@ Route::group([
         ->name('saveCategory');
     Route::post('/addUser', [AdminController::class, 'saveUser'])
         ->name('saveUser');
-
-
-//    Route::post('/add', [AdminController::class, 'save'])
-//        ->name('save');
-//    Route::get('/update', [AdminController::class, 'update'])
-//        ->name('update');
-//    Route::get('/delete', [AdminController::class, 'delete'])
-//        ->name('delete');
 });
 
 
