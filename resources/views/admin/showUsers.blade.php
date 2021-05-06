@@ -11,6 +11,7 @@
 @section('page_content')
 
     <span><a href="{{route('admin::panel')}}">{{__('labels.admin_usersList_menu_1')}} ></a><a href="{{route('admin::showUsers')}}">  {{__('labels.admin_usersList_menu_2')}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="{{route('admin::addUser')}}"><button type="button" class="btn btn-info">{{__('labels.admin_usersList_add')}}</button></a>
     <hr>
     @include('showMessages')
     @foreach($users as $item)

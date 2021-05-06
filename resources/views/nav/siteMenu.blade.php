@@ -33,7 +33,7 @@
                 @else
                 <!-- Simple Admin Authorisation ..yet.. --start-->
                     @if(Auth::user()->name == 'Admin')
-                        <li class="navbar-li"><a href="{{ route('admin::panel') }}">{{__('labels.menu_admin')}}</a></li>
+                        <li class="nav-link"><a href="{{ route('admin::panel') }}">{{__('labels.menu_admin')}}</a></li>
                     @endif
                 <!-- Simple Admin Authorisation --end -->
                     <li class="nav-item dropdown">

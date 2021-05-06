@@ -55,6 +55,10 @@ class AdminController extends Controller
         return view('admin.addCategory');
     }
 
+    public function addUser() {
+        return view('admin.addUser');
+    }
+
     public function saveNews(AdminSaveNewsRequest $request) {
 
 //        dd(\App::currentLocale());
@@ -94,6 +98,18 @@ class AdminController extends Controller
         $category->save();
 
         return redirect()->route('admin::showCategories')->with('success', 'Added a new category!');
+    }
+
+    public function saveUser(AdminSaveNewsRequest $request) {
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');  // !! md5
+        $user->created_at = now();
+        // add img src later
+        $user->save();
+
+        return redirect()->route('admin::showUsers')->with('success', 'User is added!');
     }
 
 

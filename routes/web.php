@@ -85,7 +85,8 @@ Route::get('/db', [\App\Http\Controllers\DbController::class, 'index'])
 / Admin */
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin::'
+    'as' => 'admin::',
+    'middleware' => ['auth']
 ], function() {
     Route::get('/', [AdminController::class, 'admin'])
         ->name('panel');
@@ -103,11 +104,15 @@ Route::group([
         ->name('addNews');
     Route::get('/addCategory/{id?}', [AdminController::class, 'addCategory'])
         ->name('addCategory');
+    Route::get('/addUser/{id?}', [AdminController::class, 'addUser'])
+        ->name('addUser');
 
     Route::post('/addNews', [AdminController::class, 'saveNews'])
         ->name('saveNews');
     Route::post('/addCategory', [AdminController::class, 'saveCategory'])
         ->name('saveCategory');
+    Route::post('/addUser', [AdminController::class, 'saveUser'])
+        ->name('saveUser');
 
 
 //    Route::post('/add', [AdminController::class, 'save'])
