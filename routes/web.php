@@ -8,6 +8,7 @@ use \App\Http\Controllers\AboutController;
 
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ParserController;
 use \App\Http\Controllers\LocaleController;
 
 use Illuminate\Http\Request;
@@ -113,6 +114,9 @@ Route::group([
         ->name('saveCategory');
     Route::post('/addUser', [AdminController::class, 'saveUser'])
         ->name('saveUser');
+
+    Route::get('/parser', [ParserController::class, 'index'])
+        ->name('parser');
 });
 
 

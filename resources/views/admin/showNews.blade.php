@@ -14,7 +14,8 @@
 {{--        <span><a href="#">Delete news</a></span></p>--}}
 
     <span><a href="{{route('admin::panel')}}">{{__('labels.admin_newsList_menu_1')}} ></a><a href="{{route('admin::showNews')}}">  {{__('labels.admin_newsList_menu_2')}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <a href="{{route('admin::addNews')}}"><button type="button" class="btn btn-info">{{__('labels.admin_newsList_add')}}</button></a>
+    <a href="{{route('admin::addNews')}}"><button type="button" class="btn btn-info">{{__('labels.admin_newsList_add')}}</button></a>&nbsp;&nbsp;&nbsp;
+    <a href="{{route('admin::parser')}}"><button type="button" class="btn btn-info">{{__('labels.admin_newsList_parser')}}</button></a>
     <hr>
     @include('showMessages')
 @foreach($news as $item)

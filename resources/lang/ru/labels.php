@@ -32,6 +32,8 @@ return [
     'admin_newsList_add' => 'Добавить новость',
     'admin_newsList_update' => 'Обновить',
     'admin_newsList_delete' => 'Удалить',
+    'admin_newsList_parser' => 'Добавить с Яндекса',
+    'admin_news_yandexNews' => 'Новости с Яндекса добавлены!',
     'admin_newsAdd_h4' => 'Добавить новость / Обновить новость',
     'admin_newsAdd_menu_1' => 'Админка',
     'admin_newsAdd_menu_2' => 'Список новостей',

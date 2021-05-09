@@ -32,6 +32,8 @@ return [
     'admin_newsList_add' => 'Add news',
     'admin_newsList_update' => 'Update',
     'admin_newsList_delete' => 'Delete',
+    'admin_newsList_parser' => 'Add from Yandex',
+    'admin_news_yandexNews' => 'Yandex news is added!',
     'admin_newsAdd_h4' => 'Add news page / Update news page',
     'admin_newsAdd_menu_1' => 'Admin panel',
     'admin_newsAdd_menu_2' => 'news list',
