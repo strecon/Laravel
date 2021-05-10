@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\HomeController;
@@ -121,12 +122,14 @@ Route::group([
 
 
 /* --------
-/ Authorisation */
-
-//Route::get('/auth', [AuthController::class,'auth'])
-//    ->name('auth');
-//Route::post('/auth', [AuthController::class,'save'])
-//    ->name('auth::save');
-//Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
-//    ->name('auth');
+/ Social */
+Route::group([
+    'prefix' => 'social',
+    'as' => 'social::',
+], function () {
+    Route::get('/login', [SocialController::class, 'loginFb'])
+        ->name('login-fb');
+    Route::get('/response', [SocialController::class, 'responseFb'])
+        ->name('response-fb');
+});
 

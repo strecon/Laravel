@@ -11,7 +11,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "orchestra/parser": "^6.1"
+        "orchestra/parser": "^6.1",
+        "socialiteproviders/facebook": "^4.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.10",
