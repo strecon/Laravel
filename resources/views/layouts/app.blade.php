@@ -42,6 +42,8 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v10.0&appId=1179737859135092&autoLogAppEvents=1" nonce="zpDd4Aar"></script>
 
     <div id="app">
 {{--        @include('.nav.appNav')--}}

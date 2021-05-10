@@ -17,8 +17,18 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <!-- FB Authentication Links -- v.1--->
+                <div class="fb-login-button nav-link" data-width="" data-size="small" data-button-type="login_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div>
+               <!-- FB Authentication Links --v.1--end-->
+
                 <!-- Authentication Links -->
                 @guest
+                    <!-- FB Authentication Links -- v.2 --->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('social::login-fb') }}">{{ __('fbLogin') }}</a>
+                    </li>
+                    <!-- FB Authentication Links -- v.2 --end-->
+
                     @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

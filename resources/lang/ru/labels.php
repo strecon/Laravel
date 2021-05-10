@@ -4,6 +4,7 @@ return [
     'menu_about' => 'О нас',
     'menu_news' => 'Новости',
     'menu_signIn' => 'Войти',
+    'fbLogin' => 'FB вход',
     'menu_admin' => 'Админка',
     'header_h1' => 'Горячие Новости',
     'header_motto' => 'Горячие новости - со всего света!',

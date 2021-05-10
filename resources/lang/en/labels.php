@@ -4,6 +4,7 @@ return [
     'menu_about' => 'About',
     'menu_news' => 'News',
     'menu_signIn' => 'Sign in',
+    'fbLogin' => 'FB Login',
     'menu_admin' => 'Admin',
     'header_h1' => 'Hot News',
     'header_motto' => 'Hot news from all over the world!',
