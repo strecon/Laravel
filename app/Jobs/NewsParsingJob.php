@@ -35,6 +35,7 @@ class NewsParsingJob implements ShouldQueue
     public function handle(NewsParcer $parcer)
     {
         $data = $parcer->run($this->source);
+        sleep(3);
         dump($data);
 
         // saving to DB
