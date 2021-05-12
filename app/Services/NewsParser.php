@@ -6,7 +6,7 @@ namespace App\Services;
 
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
-class NewsParcer
+class NewsParser
 {
     public function run(string $source) {
         $xml = XmlParser::load($source);

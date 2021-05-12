@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\News;
-use App\Services\NewsParcer;
+use App\Services\NewsParser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -20,7 +20,7 @@ class NewsParsingJob implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param $source
      */
     public function __construct($source)
     {
@@ -30,13 +30,29 @@ class NewsParsingJob implements ShouldQueue
     /**
      * Execute the job.
      *
+     * @param NewsParser $parser
      * @return void
      */
-    public function handle(NewsParcer $parcer)
+    public function handle(NewsParser $parser)
     {
-        $data = $parcer->run($this->source);
-        sleep(3);
-        dump($data);
+        // todo: replace to method
+        \Storage::disk('parser_logs')
+            ->append('parsing.log', date('Y-m-d '. $this->source));
+
+        $messages = 'success';
+
+        try {
+            $data = $parser->run($this->source);
+        } catch (\Exception $e) {
+            $messages = 'error';
+        } finally {
+            \Storage::disk('parser_logs')
+                ->append('parsing.log', $messages);
+        }
+
+//        $data = $parser->run($this->source);
+//        sleep(3);
+//        dump($data);
 
         // saving to DB
 //        foreach ($data['items'] as $item) {
