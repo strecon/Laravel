@@ -37,7 +37,7 @@ class NewsParsingJob implements ShouldQueue
     {
         // todo: replace to method
         \Storage::disk('parser_logs')
-            ->append('parsing.log', date('Y-m-d '. $this->source));
+            ->append('parsing.log', date('Y-m-d ') . $this->source);
 
         $messages = 'success';
 
