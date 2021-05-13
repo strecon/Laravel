@@ -61,9 +61,9 @@ class AdminController extends Controller
 
     public function newsImgUpload($id = null, Request  $request) {
         $path = $request->file('image')->store('news', 'images');
-        dd($path);
-//        return $path;
+//        dd($path);
 //        return view('admin.addNews', ['path' => $path]);
+        return $path;
     }
 
     public function saveNews($id = null, AdminSaveNewsRequest $request) {
