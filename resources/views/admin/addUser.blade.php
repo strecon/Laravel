@@ -10,13 +10,13 @@
 
 @section('page_content')
     <br>
-    <h4>{{__('labels.admin_userAdd_h4')}}</h4>
+    <h4>{{__('labels.admin_userAdd_h4')}} {{$id}}</h4>
     <br>
     <span><a href="{{route('admin::panel')}}">{{__('labels.admin_userAdd_menu_1')}} ></a><a href="{{route('admin::showUsers')}}">  {{__('labels.admin_userAdd_menu_2')}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <br>
     <br>
     {{--    @include('showErrors')--}}
-    <form action="{{route('admin::saveUser')}}" method="post">
+    <form action="{{route('admin::saveUser', ['id' => $id])}}" method="post">
         @csrf
         <div class="form-group">
             <label for="name"><span style="color: darkred">*</span> {{__('labels.admin_userAdd_name')}}: </label>

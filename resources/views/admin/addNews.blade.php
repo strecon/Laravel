@@ -10,13 +10,13 @@
 
 @section('page_content')
     <br>
-    <h4>{{__('labels.admin_newsAdd_h4')}}</h4>
+    <h4>{{__('labels.admin_newsAdd_h4')}} id={{$id}}</h4>
     <br>
     <span><a href="{{route('admin::panel')}}">{{__('labels.admin_newsAdd_menu_1')}} ></a><a href="{{route('admin::showNews')}}">  {{__('labels.admin_newsAdd_menu_2')}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <br>
     <br>
 {{--    @include('showErrors')--}}
-    <form action="{{route('admin::saveNews')}}" method="post">
+    <form action="{{route('admin::saveNews', ['id' => $id])}}" method="post">
         @csrf
         <div class="form-group">
             <label for="category"><span style="color: darkred">*</span> {{__('labels.admin_newsAdd_category')}}: </label>

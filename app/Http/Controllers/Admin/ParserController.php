@@ -23,6 +23,8 @@ class ParserController extends Controller
             NewsParsingJob::dispatch($source);
         }
 
+        return redirect()->route('admin::showNews');
+
 //--------- replaced to NewsParcer (App\Services) --start------
 //        $xml = XmlParser::load('https://news.yandex.ru/army.rss');
 //        $data = $xml->parse([

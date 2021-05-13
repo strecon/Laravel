@@ -23,7 +23,12 @@
                 <a href="{{route('admin::addCategory', $item->id)}}"><button type="button" class="btn btn-success">
                     {{__('labels.admin_categList_update')}}</button></a>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning">{{__('labels.admin_categList_delete')}}</button>
+                <br><br>
+                <form action="{{route('admin::deleteCategory', $item->id)}}" method="post">
+                    <input type="hidden" name="_method" value="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-warning">{{__('labels.admin_categList_delete')}}</button>
+                </form>
             </div>
         </div>
         <hr>

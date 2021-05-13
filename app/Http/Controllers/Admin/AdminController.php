@@ -47,25 +47,19 @@ class AdminController extends Controller
     }
 
     //add ..
-    public function addNews() {
-        return view('admin.addNews');
+    public function addNews($id = null) {
+        return view('admin.addNews', ['id' => $id]);
     }
 
-    public function addCategory() {
-        return view('admin.addCategory');
+    public function addCategory($id = null) {
+        return view('admin.addCategory', ['id' => $id]);
     }
 
-    public function addUser() {
-        return view('admin.addUser');
+    public function addUser($id = null) {
+        return view('admin.addUser', ['id' => $id]);
     }
 
-    public function saveNews(AdminSaveNewsRequest $request) {
-
-//        dd(\App::currentLocale());
-//        \App::setLocale('ru');
-
-//        dump($request->method());
-//        dump($request->input('content'));
+    public function saveNews($id = null, AdminSaveNewsRequest $request) {
 
 //        $validation = $request->validate([
 //            'category' => 'required|exists:categories,id|digits_between:1,10',
@@ -74,7 +68,11 @@ class AdminController extends Controller
 //            'content' => 'required'
 //        ]); // This rules as public function remove into News model
 
-        $news = new News();
+//        $news = new News();
+        $news = $id ? News::find($id) : new News();
+//        dump($news);
+//        dd($id);
+
         $news->category = $request->input('category');
         $news->title = $request->input('title');
         $news->content = $request->input('content');
@@ -82,26 +80,27 @@ class AdminController extends Controller
         // add img src later
         $news->save();
 
-        return redirect()->route('admin::showNews')->with('success', __('labels.admin_news_yandexNews'));
+        return redirect()->route('admin::showNews')->with('success', 'Success!!');
     }
 
-    public function saveCategory(AdminSaveCategoryRequest $request) {
-
-//        dd(\App::currentLocale());
+    public function saveCategory($id = null, AdminSaveCategoryRequest $request) {
 
 //        $validation = $request->validate([
 //            'name' => 'required|unique:categories|alpha|max:15'
 //        ]); // This rules as public function remove into Category model
 
-        $category = new Category();
+//        $id = $request->post('id');
+        $category = $id ? Category::find($id) : new Category();
         $category->name = $request->input('name');
         $category->save();
 
-        return redirect()->route('admin::showCategories')->with('success', 'Added a new category!');
+        return redirect()->route('admin::showCategories')->with('success', 'Success!!');
     }
 
-    public function saveUser(AdminSaveNewsRequest $request) {
-        $user = new User();
+    public function saveUser($id = null, AdminSaveNewsRequest $request) {
+//        $user = new User();
+        $user = $id ? User::find($id) : new User();
+
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');  // !! md5
@@ -109,8 +108,26 @@ class AdminController extends Controller
         // add img src later
         $user->save();
 
-        return redirect()->route('admin::showUsers')->with('success', 'User is added!');
+        return redirect()->route('admin::showUsers')->with('success', 'Success!!');
     }
+
+    // delete
+    public function deleteNews($id) {
+        News::find($id)->delete();
+        // todo: add error handling
+        return redirect()->back()->with('success', 'Deleted!');
+    }
+    public function deleteCategory($id){
+        Category::find($id)->delete();
+        // todo: add error handling
+        return redirect()->back()->with('success', 'Deleted!');
+    }
+    public function deleteUser($id){
+        User::find($id)->delete();
+        // todo: add error handling
+        return redirect()->back()->with('success', 'Deleted!');
+    }
+
 
 
     // add with examples 1.. --------------
@@ -156,23 +173,4 @@ class AdminController extends Controller
 //    }
         // ------------------------------
 
-    // update ..
-    public function update() {
-        echo "<h3>Admin Panel</h3>
-            <p>update news</p>";
-        exit;
-    }
-
-    //save
-    public function save() {
-        // save data somewhere
-        return redirect()->route('admin::add');
-    }
-
-    // delete ..
-    public function delete() {
-        echo "<h3>Admin Panel</h3>
-            <p>delete news</p>";
-        exit;
-    }
 }

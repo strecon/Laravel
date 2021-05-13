@@ -23,9 +23,14 @@
 {{--                <p>{{__('labels.admin_userList_group')}}: {{$item->is_admin}}</p>--}}
                 <p>{{__('labels.admin_userList_group')}}: </p>
                 <p><small>{{$item->created_at}}</small></p>
-                <a href="#"><button type="button" class="btn btn-success">{{__('labels.admin_userList_update')}}</button></a>
+                <a href="{{route('admin::addUser', $item->id)}}"><button type="button" class="btn btn-success">{{__('labels.admin_userList_update')}}</button></a>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning">{{__('labels.admin_userList_delete')}}</button>
+                <br><br>
+                <form action="{{route('admin::deleteUser', $item->id)}}" method="post">
+                    <input type="hidden" name="_method" value="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-warning">{{__('labels.admin_userList_delete')}}</button>
+                </form>
             </div>
         </div>
         <hr>

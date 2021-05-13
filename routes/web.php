@@ -109,12 +109,19 @@ Route::group([
     Route::get('/addUser/{id?}', [AdminController::class, 'addUser'])
         ->name('addUser');
 
-    Route::post('/addNews', [AdminController::class, 'saveNews'])
+    Route::post('/addNews/{id?}', [AdminController::class, 'saveNews'])
         ->name('saveNews');
-    Route::post('/addCategory', [AdminController::class, 'saveCategory'])
+    Route::post('/addCategory/{id?}', [AdminController::class, 'saveCategory'])
         ->name('saveCategory');
-    Route::post('/addUser', [AdminController::class, 'saveUser'])
+    Route::post('/addUser/{id?}', [AdminController::class, 'saveUser'])
         ->name('saveUser');
+
+    Route::post('/deleteNews/{id}', [AdminController::class, 'deleteNews'])
+        ->name('deleteNews');
+    Route::post('/deleteCategory/{id}', [AdminController::class, 'deleteCategory'])
+        ->name('deleteCategory');
+    Route::post('/deleteUser/{id}', [AdminController::class, 'deleteUser'])
+        ->name('deleteUser');
 
     Route::get('/parser', [ParserController::class, 'index'])
         ->name('parser');

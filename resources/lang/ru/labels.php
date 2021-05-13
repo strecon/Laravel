@@ -68,7 +68,7 @@ return [
     'admin_userList_update' => 'Изменить',
     'admin_userList_delete' => 'Удалить',
     'admin_userList_group' => 'группа',
-    'admin_userAdd_h4' => 'Добавить пользователя',
+    'admin_userAdd_h4' => 'Добавить пользователя / Обновить пользователя',
     'admin_userAdd_menu_1' => 'Админка',
     'admin_userAdd_menu_2' => 'список пользователей',
     'admin_userAdd_name' => 'Имя',
