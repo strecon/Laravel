@@ -10,12 +10,19 @@
 
 @section('page_content')
     <br>
-    <h4>{{__('labels.admin_newsAdd_h4')}} id={{$id}}</h4>
+    <h4>{{__('labels.admin_newsAdd_h4')}} {{$id}}</h4>
     <br>
     <span><a href="{{route('admin::panel')}}">{{__('labels.admin_newsAdd_menu_1')}} ></a><a href="{{route('admin::showNews')}}">  {{__('labels.admin_newsAdd_menu_2')}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <br>
     <br>
 {{--    @include('showErrors')--}}
+    <form action="{{route('admin::newsImgUpload', ['id' => $id])}}" method="post">
+        <div class="input-group mb-3">
+            <input type="file" name="image" class="form-control" id="inputGroupFile02">
+{{--            <label class="input-group-text" for="image">attach</label>--}}
+            <button type="submit" class="btn btn-outline-primary">Attach</button>
+        </div>
+    </form>
     <form action="{{route('admin::saveNews', ['id' => $id])}}" method="post">
         @csrf
         <div class="form-group">
@@ -32,10 +39,16 @@
             <div class="alert alert-danger">{{$message}}</div>
             @enderror
         </div>
+
+{{--        <div class="form-group">--}}
+{{--            <input type="file" name="image">--}}
+{{--        </div>--}}
+
 {{--        <div class="input-group mb-3">--}}
-{{--            <input type="file" class="form-control" id="inputGroupFile02">--}}
+{{--            <input type="file" name="image" class="form-control" id="inputGroupFile02">--}}
 {{--            <label class="input-group-text" for="inputGroupFile02">attach</label>--}}
 {{--        </div>--}}
+
         <div class="form-group">
             <label for="content"><span style="color: darkred">*</span> {{__('labels.admin_newsAdd_content')}}: </label>
             <textarea name="content" placeholder="{{__('labels.admin_newsAdd_contentPlhdr')}}" id="content"  class="form-control"></textarea>

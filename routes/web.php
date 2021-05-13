@@ -109,6 +109,9 @@ Route::group([
     Route::get('/addUser/{id?}', [AdminController::class, 'addUser'])
         ->name('addUser');
 
+    Route::post('imgUpload/{id?}', [AdminController::class, 'newsImgUpload'])
+        ->name('newsImgUpload');
+
     Route::post('/addNews/{id?}', [AdminController::class, 'saveNews'])
         ->name('saveNews');
     Route::post('/addCategory/{id?}', [AdminController::class, 'saveCategory'])

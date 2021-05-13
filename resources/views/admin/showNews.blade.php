@@ -20,7 +20,9 @@
     @include('showMessages')
 @foreach($news as $item)
         <div class="news_list-item">
-            <div class="news_img-small col-xl-1"></div>
+            <div class="news_img-small col-xl-1">
+                <img src="{{$item->img}}">
+            </div>
             <div class="col-xl-11">
                 <h5>{{$item->title}}</h5>
                 <h6>category: {{$item->category}}</h6>

@@ -59,6 +59,13 @@ class AdminController extends Controller
         return view('admin.addUser', ['id' => $id]);
     }
 
+    public function newsImgUpload($id = null, Request  $request) {
+        $path = $request->file('image')->store('news', 'images');
+        dd($path);
+//        return $path;
+//        return view('admin.addNews', ['path' => $path]);
+    }
+
     public function saveNews($id = null, AdminSaveNewsRequest $request) {
 
 //        $validation = $request->validate([
@@ -72,16 +79,23 @@ class AdminController extends Controller
         $news = $id ? News::find($id) : new News();
 //        dump($news);
 //        dd($id);
+        // todo: when updating, fill with data from the database
 
         $news->category = $request->input('category');
         $news->title = $request->input('title');
+
+//        dd($request->file('image'));
+//        $path = $request->file('image')->store('images');
+////        $path = \Storage::putFile('images', $request->file('image'));
+///
+        $news->img = $this->newsImgUpload();
         $news->content = $request->input('content');
         $news->published = now();
-        // add img src later
         $news->save();
 
         return redirect()->route('admin::showNews')->with('success', 'Success!!');
     }
+
 
     public function saveCategory($id = null, AdminSaveCategoryRequest $request) {
 
