@@ -82,7 +82,7 @@ class AdminController extends Controller
         // add img src later
         $news->save();
 
-        return redirect()->route('admin::showNews')->with('success', 'Yours news is added!');
+        return redirect()->route('admin::showNews')->with('success', __('labels.admin_news_yandexNews'));
     }
 
     public function saveCategory(AdminSaveCategoryRequest $request) {
