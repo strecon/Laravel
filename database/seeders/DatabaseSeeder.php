@@ -11,8 +11,13 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    // запуск всех Seed'ов
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+//        // вызов класса NewsSeeder
+//        $this->call(NewsSeeder::class);
+
+//         \App\Models\User::factory(10)->create();
     }
 }
