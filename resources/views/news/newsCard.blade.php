@@ -9,12 +9,16 @@
 @endsection
 
 @section('page_content')
-    <h2>Selected news</h2>
+    <h3>{{$news->title}}</h3>
     <br>
     <article>
-        <div class="news_img"></div>
+        <div class="news_img">
+            <img src="{{$news->img}}" alt="no image">
+        </div>
         <br>
-        <div>{{$news}}</div>
+        <div>
+            <p>{{$news->content}}</p>
+        </div>
     </article>
     <br>
     <br>

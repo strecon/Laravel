@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-    @parent Admin Panel -add
+    @parent Admin Panel -add News
 @endsection
 
 @section('page_content')

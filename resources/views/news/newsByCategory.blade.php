@@ -5,20 +5,23 @@
 @endsection
 
 @section('title')
-    @parent {{$category}} Category
+    @parent Category
 @endsection
 
 
 @section('page_content')
     <h2>News List by Category {{$category}}</h2>
     <br>
-    @foreach($list as $id => $card)
+    @foreach($list as $card)
         @php
-            $url = route('news::card', ['id' => $id]);
+            $url = route('news::card', ['id' => $card->id]);
         @endphp
             <div class="news_list-item">
                 <div class="news_img-small col-xl-1"></div>
-                <div class="col-xl-11"><a href='{{$url}}'>{{$card}}</a></div>
+                <div class="col-xl-11">
+                    <h6>{{$card->title}}</h6>
+                    <a href='{{$url}}'>{{$card->content}}</a>
+                </div>
             </div>
         <br>
     @endforeach

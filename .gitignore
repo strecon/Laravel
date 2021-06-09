@@ -13,3 +13,23 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.idea
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# CMake
+cmake-build-*/
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Laravel IDE helper
+*.meta.*
+_ide_*
