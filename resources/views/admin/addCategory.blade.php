@@ -10,12 +10,12 @@
 
 @section('page_content')
     <br>
-    <h4>{{__('labels.admin_categAdd_h2')}}</h4>
+    <h4>{{__('labels.admin_categAdd_h2')}} {{$id}}</h4>
     <br>
     <span><a href="{{route('admin::panel')}}">{{__('labels.admin_categAdd_menu_1')}} ></a><a href="{{route('admin::showCategories')}}">  {{__('labels.admin_categAdd_menu_2')}}</a></span>
     <br><br>
     @include('showErrors')
-    <form action="{{route('admin::saveCategory')}}" method="post">
+    <form action="{{route('admin::saveCategory', ['id' => $id])}}" method="post">
         @csrf
         <div class="form-group">
             <label for="name"><span style="color: darkred">*</span> {{__('labels.admin_categAdd_name')}}: </label>

@@ -10,7 +10,10 @@
 
 
 @section('page_content')
-    <h2>{{__('labels.news_list_h2')}} {{$category}}</h2>
+{{--    <h2>{{__('labels.news_list_h2')}} {{$category}}</h2>--}}
+    <br>
+    <span><a href="{{route('news::categories')}}">{{__('labels.newsList_menu_1')}} ></a><a href="{{redirect()->back()}}">  {{__('labels.newsList_menu_2')}}  {{$category}}</a></span>
+    <br>
     <br>
     @foreach($list as $card)
         @php

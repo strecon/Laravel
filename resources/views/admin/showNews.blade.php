@@ -20,7 +20,9 @@
     @include('showMessages')
 @foreach($news as $item)
         <div class="news_list-item">
-            <div class="news_img-small col-xl-1"></div>
+            <div class="news_img-small col-xl-1">
+                <img src="{{$item->img}}">
+            </div>
             <div class="col-xl-11">
                 <h5>{{$item->title}}</h5>
                 <h6>category: {{$item->category}}</h6>
@@ -28,7 +30,12 @@
                 <p><small>{{$item->created_at}}</small></p>
                 <a href="{{route('admin::addNews', $item->id)}}"><button type="button" class="btn btn-success">{{__('labels.admin_newsList_update')}}</button></a>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning">{{__('labels.admin_newsList_delete')}}</button>
+                <br><br>
+                <form action="{{route('admin::deleteNews', $item->id)}}" method="post">
+                    <input type="hidden" name="_method" value="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-warning">{{__('labels.admin_newsList_delete')}}</button>
+                </form>
             </div>
         </div>
         <hr>
