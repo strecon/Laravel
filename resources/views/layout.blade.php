@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     @section('style_link')
         <link href="css/app.css" rel="stylesheet">@show
+{{--    @section('style_link')--}}
+{{--        <link rel="stylesheet" href="{{asset('css/app.css')}}">@show--}}
 </head>
 <body>
     @include('nav.siteMenu')

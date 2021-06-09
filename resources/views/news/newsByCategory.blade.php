@@ -8,6 +8,7 @@
     @parent {{$category}} Category
 @endsection
 
+
 @section('page_content')
     <h2>News List by Category {{$category}}</h2>
     <br>

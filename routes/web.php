@@ -9,6 +9,8 @@ use \App\Http\Controllers\AboutController;
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\Admin\AdminController;
 
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ use \App\Http\Controllers\Admin\AdminController;
 Route::get('/', [HomeController::class, 'home'])
     ->name('root');
 
+
 /* --------
 / About */
 
@@ -40,10 +43,10 @@ Route::get('/', [HomeController::class, 'home'])
 Route::get('/about', [AboutController::class, 'about'])
 ->name('about');
 
+
 /* -------
 / News */
 
-//-- Third stage --
 Route::group([
     'prefix' => '/news',
     'as' => 'news::',
@@ -57,23 +60,6 @@ Route::group([
         ->name('card');
 });
 
-//Route::get('/news/{id}/{text}', function ($id, $text) {
-//    return 'id: ' . $id . '<br>News: ' . $text;
-////    return view('news');
-//});
-
-//Route::get('/news', function () {
-//    return view('news');
-//});
-
-//Route::get('/news/category', function () {
-//    return view('newsByCategory');
-//});
-
-//Route::get('/news/category/card', function () {
-//    return view('newsCard');
-//});
-
 
 /* --------
 / Admin */
@@ -83,8 +69,12 @@ Route::group([
 ], function() {
     Route::get('/', [AdminController::class, 'admin'])
         ->name('panel');
+//    Route::match(['get', 'post'],'/add', [AdminController::class, 'add'])
+//        ->name('add');
     Route::get('/add', [AdminController::class, 'add'])
         ->name('add');
+    Route::post('/add', [AdminController::class, 'save'])
+        ->name('save');
     Route::get('/show', [AdminController::class, 'show'])
         ->name('show');
     Route::get('/update', [AdminController::class, 'update'])
@@ -95,5 +85,10 @@ Route::group([
 
 /* --------
 / Authorisation */
+
 Route::get('auth', [AuthController::class,'auth'])
     ->name('auth');
+Route::post('auth', [AuthController::class,'save'])
+    ->name('auth::save');
+//Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
+//    ->name('auth');
