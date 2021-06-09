@@ -9,24 +9,28 @@
 @endsection
 
 @section('page_content')
-{{--    <p><span><a href="{{ route('admin::addNews') }}">Add news</a></span>--}}
-{{--        <span>&nbsp;&nbsp;&nbsp;</span>--}}
 {{--        <span><a href="#">Update news</a></span>--}}
 {{--        <span>&nbsp;&nbsp;&nbsp;</span>--}}
 {{--        <span><a href="#">Delete news</a></span></p>--}}
-    <button type="button" class="btn btn-info">Add news</button>
+
+    <span><a href="{{route('admin::panel')}}">Admin panel ></a><a href="{{route('admin::showNews')}}">  news list</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <a href="{{route('admin::addNews')}}"><button type="button" class="btn btn-info">Add news</button></a>
     <hr>
-    @foreach($news as $item)
+    @include('showMessages')
+@foreach($news as $item)
         <div class="news_list-item">
             <div class="news_img-small col-xl-1"></div>
             <div class="col-xl-11">
                 <h5>{{$item->title}}</h5>
+                <h6>category: {{$item->category}}</h6>
                 <p>{{$item->content}}</p>
                 <p><small>{{$item->created_at}}</small></p>
-                <button type="button" class="btn btn-success">Update</button>&nbsp;&nbsp;&nbsp;
+                <a href="{{route('admin::addNews', $item->id)}}"><button type="button" class="btn btn-success">Update</button></a>
+                &nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-warning">Delete</button>
             </div>
         </div>
         <hr>
     @endforeach
+    {{$news->links()}}
 @endsection
