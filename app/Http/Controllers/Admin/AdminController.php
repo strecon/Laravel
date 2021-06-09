@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 use function React\Promise\all;
 
@@ -40,6 +41,11 @@ class AdminController extends Controller
         return view('admin.showCategories', ['category' => $category]); // v2
     }
 
+    public function allUsers() {
+        $users = User::orderBy('name', 'asc')->paginate(2);
+        return view('admin.showUsers', compact('users'));
+    }
+
     //add ..
     public function addNews() {
         return view('admin.addNews');
@@ -47,6 +53,10 @@ class AdminController extends Controller
 
     public function addCategory() {
         return view('admin.addCategory');
+    }
+
+    public function addUser() {
+        return view('admin.addUser');
     }
 
     public function saveNews(AdminSaveNewsRequest $request) {
@@ -88,6 +98,18 @@ class AdminController extends Controller
         $category->save();
 
         return redirect()->route('admin::showCategories')->with('success', 'Added a new category!');
+    }
+
+    public function saveUser(AdminSaveNewsRequest $request) {
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');  // !! md5
+        $user->created_at = now();
+        // add img src later
+        $user->save();
+
+        return redirect()->route('admin::showUsers')->with('success', 'User is added!');
     }
 
 

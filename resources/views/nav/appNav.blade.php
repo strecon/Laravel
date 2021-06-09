@@ -10,9 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="navbar-li active"><a href="{{ route('home') }}">{{__('labels.menu_home')}}</a></li>
-                <li class="navbar-li"><a href="{{ route('about') }}">{{__('labels.menu_about')}}</a></li>
-                <li class="navbar-li"><a href="{{ route('news::categories') }}">{{__('labels.menu_news')}}</a></li>
+
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -31,15 +29,6 @@
                         </li>
                     @endif
                 @else
-                <!-- Simple Admin Authorisation ..yet.. --start-->
-                    @if(Auth::user()->is_admin)
-{{--                        @if(Auth::user()->name == 'Admin')--}}
-                        <li class="nav-link"><a href="{{ route('admin::panel') }}">{{__('labels.menu_admin')}}</a></li>
-                    @else
-                        <li class="nav-link"><a href="#">{{Auth::user()->name}}</a></li>
-                    @endif
-
-                <!-- Simple Admin Authorisation --end -->
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -61,8 +50,4 @@
             </ul>
         </div>
     </div>
-    <ul class="nav">
-        <li><a class="dropdown-item" href="{{route('changeLocale', ['locale' => 'en'])}}">en</a></li>
-        <li><a class="dropdown-item" href="{{route('changeLocale', ['locale' => 'ru'])}}">ru</a></li>
-    </ul>
 </nav>

@@ -10,7 +10,7 @@
 
 
 @section('page_content')
-    <h2>News List by Category {{$category}}</h2>
+    <h2>{{__('labels.news_list_h2')}} {{$category}}</h2>
     <br>
     @foreach($list as $card)
         @php

@@ -8,6 +8,7 @@ use \App\Http\Controllers\AboutController;
 
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\Admin\AdminController;
+use \App\Http\Controllers\LocaleController;
 
 use Illuminate\Http\Request;
 
@@ -27,13 +28,27 @@ use Illuminate\Http\Request;
 */
 
 
+/* -------
+/ Lacale */
+Route::get('/locale/{locale}', [LocaleController::class, 'changeLocale'])
+    ->where('locale', '\w+')
+    ->name('changeLocale');
+
+
+/* --------
+/ Home -- ui auth */
+Auth::routes();
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
 /* -------
-/ Home */
+/ Home_Old -- before install ui auth */
 
 //Route::get('/', '\App\Http\Controllers\HomeController@home');
-Route::get('/', [HomeController::class, 'home'])
-    ->name('root');
+//Route::get('/', [HomeController::class, 'home'])
+//    ->name('root');
 
 
 /* --------
@@ -63,14 +78,15 @@ Route::group([
 
 
 // for lesson5
-Route::get('db', [\App\Http\Controllers\DbController::class, 'index'])
+Route::get('/db', [\App\Http\Controllers\DbController::class, 'index'])
     ->name('news-db');
 
 /* --------
 / Admin */
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin::'
+    'as' => 'admin::',
+    'middleware' => ['auth', 'is_admin']
 ], function() {
     Route::get('/', [AdminController::class, 'admin'])
         ->name('panel');
@@ -81,34 +97,32 @@ Route::group([
         ->name('showNews');
     Route::get('/showCategories', [AdminController::class, 'allCategories'])
         ->name('showCategories');
+    Route::get('/showUsers', [AdminController::class, 'allUsers'])
+        ->name('showUsers');
 
     Route::get('/addNews/{id?}', [AdminController::class, 'addNews'])
         ->name('addNews');
     Route::get('/addCategory/{id?}', [AdminController::class, 'addCategory'])
         ->name('addCategory');
+    Route::get('/addUser/{id?}', [AdminController::class, 'addUser'])
+        ->name('addUser');
 
     Route::post('/addNews', [AdminController::class, 'saveNews'])
         ->name('saveNews');
     Route::post('/addCategory', [AdminController::class, 'saveCategory'])
         ->name('saveCategory');
-
-
-//    Route::post('/add', [AdminController::class, 'save'])
-//        ->name('save');
-//    Route::get('/update', [AdminController::class, 'update'])
-//        ->name('update');
-//    Route::get('/delete', [AdminController::class, 'delete'])
-//        ->name('delete');
+    Route::post('/addUser', [AdminController::class, 'saveUser'])
+        ->name('saveUser');
 });
 
 
 /* --------
 / Authorisation */
 
-Route::get('auth', [AuthController::class,'auth'])
-    ->name('auth');
-Route::post('auth', [AuthController::class,'save'])
-    ->name('auth::save');
+//Route::get('/auth', [AuthController::class,'auth'])
+//    ->name('auth');
+//Route::post('/auth', [AuthController::class,'save'])
+//    ->name('auth::save');
 //Route::match(['get', 'post'],'auth', [AuthController::class,'auth'])
 //    ->name('auth');
 
